@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio – Miraga Niftalizade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            <img src="./assets/logo.png" alt="Logo" class="logo-light">
+            <img src="./assets/logo_dark.png" alt="Logo" class="logo-dark">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="index.html#about">About me</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact me</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button onclick="toggleTheme()" class="theme-btn">
+                <span class="moon">🌙</span>
+                <span class="sun">☀️</span>
+            </button>
+            <a href="index.html#contact" class="contact-btn">Contact <span>→</span></a>
+            <button class="hamburger" onclick="openMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <ul class="mobile-menu" id="mobileMenu">
+            <button class="close-menu" onclick="closeMenu()">✕</button>
+            <li><a href="index.html#top" onclick="closeMenu()">Home</a></li>
+            <li><a href="index.html#about" onclick="closeMenu()">About me</a></li>
+            <li><a href="index.html#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="portfolio.html" onclick="closeMenu()">Portfolio</a></li>
+            <li><a href="index.html#contact" onclick="closeMenu()">Contact me</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="portfolio-hero">
+        <p class="section-label">My Work</p>
+        <h1>Portfolio</h1>
+        <p class="hero-sub">A curated collection of branding, packaging & digital design projects.</p>
+    </section>
+
+    <!-- FILTER TABS -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="packaging">Packaging</button>
+        <button class="filter-btn" data-filter="uiux">UI/UX</button>
+        <button class="filter-btn" data-filter="digital">Digital</button>
+    </div>
+
+    <!-- GRID -->
+    <main class="portfolio-grid" id="portfolioGrid">
+
+        <div class="portfolio-item" data-category="branding" data-title="GameKings Logo Design" data-desc="GameKings is a modern gaming brand identity built around the concept of leadership and competitive strength. The crown symbol represents dominance and authority in the gaming world, while the integrated controller elements highlight the brand’s digital focus. The bold red color conveys energy, passion, and intensity, creating a powerful and memorable visual presence.">
+            <div class="item-img" style="background-image: url('./assets/work-1.png')"></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>GameKings Logo Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="uiux" data-title="Halcyon Watches Logo design" data-desc="Halcyon Watches is a handcrafted wooden watch brand identity inspired by natural textures and timeless craftsmanship. The circular badge form reflects precision and tradition, while the tree-ring detail at the center symbolizes growth, sustainability, and the organic essence of wood. The monochrome palette enhances the vintage aesthetic, creating a strong, authentic, and heritage-driven visual identity.">
+            <div class="item-img" style="background-image: url('./assets/work-2.png')"></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>Halcyon Watches Logo design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="digital" data-title="John Lowry Photography logo desıgn" data-desc="The icon is created by combining the initials “J” and “L” into a clean, geometric monogram that subtly forms a camera shape. The circular element represents the camera lens, reinforcing the photography concept while maintaining a minimal and modern aesthetic. The structured lines and balanced composition reflect precision, professionalism, and visual clarity.">
+            <div class="item-img" style="background-image: url('./assets/work-3.png')"></div>
+            <div class="item-overlay">
+                <span class="item-cat">Digital</span>
+                <h3>John Lowry Photography logo</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="packaging" data-title="Whole Soybean Salad – Packaging Design" data-desc="A clean, modern packaging design focused on freshness and natural ingredients. The bold green panel and earthy tones reflect health and sustainability, while the transparent window highlights product quality. The minimal typography and icon system clearly communicate key benefits in a strong retail-ready presentation.">
+            <div class="item-img" style="background-image: url('./assets/work-4.png')"></div>
+            <div class="item-overlay">
+                <span class="item-cat">Packaging</span>
+                <h3>Whole Soybean Salad – Packaging Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="packaging" data-title="TruPoint Knife Sharpener – Packaging Design" data-desc="A bold and functional packaging design created to emphasize performance, durability, and ease of use. The clean layout combines strong typography with green accents to highlight key product features such as the 3-stage sharpening system. Clear visual hierarchy and product-focused imagery ensure strong shelf impact and effective communication in retail environments.">
+            <div class="item-img" style="background-image: url('./assets/work-5.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Packaging</span>
+                <h3>TruPoint Knife Sharpener – Packaging Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="packaging" data-title="Makolli Melt Butter Biscuits – Packaging Design" data-desc="A warm and appetizing packaging design created to highlight the rich, buttery flavor of the product. The golden tones and splash-of-milk visual emphasize freshness and indulgence, while bold typography ensures strong shelf visibility. The overall layout balances premium perception with mass-market appeal, delivering a clean and impactful retail presence.">
+            <div class="item-img" style="background-image: url('./assets/work-6.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Packaging</span>
+                <h3>Makolli Melt Butter Biscuits – Packaging Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+
+           <div class="portfolio-item" data-category="branding" data-title="The Seafood Company – Logo Design" data-desc="A clean and modern logo design combining a house-shaped outline with a fish symbol to represent freshness and trusted sourcing. The geometric structure reflects reliability and professionalism, while the blue color palette communicates quality, purity, and a strong connection to the sea. The result is a simple yet memorable identity suitable for a contemporary seafood brand.">
+            <div class="item-img" style="background-image: url('./assets/work-7.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>The Seafood Company – Logo Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+            <div class="portfolio-item" data-category="branding" data-title="Data Wave – Logo Design" data-desc="A modern technology-focused logo that visualizes data flow through a dynamic wave form. The orange waveform symbolizes connectivity, movement, and continuous digital transmission, while the motion-inspired typography reinforces speed and innovation. The clean contrast between gray and orange creates a strong, contemporary identity suitable for a data-driven brand.">
+            <div class="item-img" style="background-image: url('./assets/work-8.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>Data Wave – Logo Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+             <div class="portfolio-item" data-category="UI/UX" data-title="Thrills – Social Event App Logo Design" data-desc="Thrills is a social media app that connects people through real-life experiences, from festivals to casual meetups. The minimal icon subtly forms a smile, representing connection and shared excitement. The vibrant blue palette and clean typography create a modern, energetic identity tailored to a young, experience-driven audience.">
+            <div class="item-img" style="background-image: url('./assets/work-9.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">UI/UX</span>
+                <h3>Thrills – Social Event App Logo Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+
+
+
+
+
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+        <div class="lightbox-content">
+            <button class="lb-close" onclick="closeLightbox()">✕</button>
+            <button class="lb-prev" onclick="prevSlide()">‹</button>
+            <button class="lb-next" onclick="nextSlide()">›</button>
+
+            <div class="lb-slides" id="lbSlides">
+                <!-- slides injected by JS -->
+            </div>
+
+            <div class="lb-info">
+                <span class="lb-cat" id="lbCat"></span>
+                <h2 id="lbTitle"></h2>
+                <p id="lbDesc"></p>
+                <div class="lb-dots" id="lbDots"></div>
+            </div>
+        </div>
+    </div>
+
+    
+<!-- Contact me section -->
+<div id="contact"
+    class="w-full px-[12%] py-10 scroll-mt-20">
+    <h4 class="text-center mb-2 text-lg">Connect with me</h4>
+    <h2 class="text-center text-5xl">Get in touch</h2>
+    <p class="text-center max-w-2xl mx-auto mt-5 mb-12">I'd love to hear from you! If you have any
+        questions, comments or feedback, please use the form below.
+    </p>
+    <form class="max-w-2xl mx-auto">
+        <input type="hidden" name="subject" value="Miraga Nift - New form Submission">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <input type="text" placeholder="Enter your name"
+                style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); outline: none; font-family: 'Montserrat', sans-serif;"
+                required name="name">
+            <input type="email" placeholder="Enter your email"
+                style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); outline: none; font-family: 'Montserrat', sans-serif;"
+                required name="email">
+        </div>
+        <textarea rows="6" placeholder="Enter your message"
+            style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); outline: none; margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif; resize: vertical;"
+            required name="message"></textarea>
+        <button type="submit"
+            style="display: flex; align-items: center; gap: 8px; padding: 10px 32px; background: linear-gradient(135deg, #b820e6, #da7d20); color: white; border: none; border-radius: 999px; cursor: pointer; margin: 0 auto; font-family: 'Montserrat', sans-serif;">
+            Submit now →
+        </button>
+        <p class="mt-4"></p>
+    </form>
+</div>
+
+<!-- Footer -->
+<div style="margin-top: 5rem;">
+    <div style="text-align: center;">
+        <a href="mailto:miraga019@gmail.com" style="color: var(--text2); text-decoration: none; font-size: 0.9rem;">miraga019@gmail.com</a>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); margin: 3rem 10% 0; padding: 1rem 0; flex-wrap: wrap; gap: 1rem;">
+        <p style="color: var(--text2); font-size: 0.85rem;">© 2026</p>
+        <ul style="display: flex; gap: 2rem; list-style: none;">
+            <li><a target="_blank" href="#!" style="color: var(--text2); text-decoration: none; font-size: 0.85rem;">LinkedIn</a></li>
+        </ul>
+    </div>
+</div>
+    <script src="portfolio.js"></script>
+
+</body>
+</html>
