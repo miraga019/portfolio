@@ -59,18 +59,31 @@ const lbDots = document.getElementById('lbDots');
 let currentSlide = 0;
 let slides = [];
 
-// mockup images per item — extend as needed
+// HTML'deki sıraya göre index:
+// 0  → work-1  (GameKings)
+// 1  → work-2  (Halcyon Watches)
+// 2  → work-3  (John Lowry Photography)
+// 3  → work-4  (Whole Soybean Salad)
+// 4  → work-5  (TruPoint)
+// 5  → work-6  (Makolli)
+// 6  → work-7  (Seafood)
+// 7  → work-8  (Data Wave)
+// 8  → work-9  (Thrills)
+// 9  → work-10 (Be Right Burger)
+// 10 → work-11 (Berry Company)
+// 11 → work-12 (Globtag)
+
 const mockups = {
-    0: ['./assets/work-1.png'],
-    1: ['./assets/work-2.png'],
-    2: ['./assets/work-3.png'],
-    3: ['./assets/work-4.png'],
-    4: ['./assets/work-5.png', './assets/work-5-2.png'],
-    5: ['./assets/work-6.png', './assets/work-6-2.png'],
-    6: ['./assets/work-7.png'],
-    7: ['./assets/work-8.png'],
-    8: ['./assets/work-9.png', './assets/work-9-2.png', './assets/work-9-3.png'],
-    9: ['./assets/work-10.png', './assets/brb.mp4'],
+    0:  ['./assets/work-1.png'],
+    1:  ['./assets/work-2.png'],
+    2:  ['./assets/work-3.png'],
+    3:  ['./assets/work-4.png'],
+    4:  ['./assets/work-5.png', './assets/work-5-2.png'],
+    5:  ['./assets/work-6.png', './assets/work-6-2.png'],
+    6:  ['./assets/work-7.png'],
+    7:  ['./assets/work-8.png'],
+    8:  ['./assets/work-9.png', './assets/work-9-2.png', './assets/work-9-3.png'],
+    9:  ['./assets/work-10.png', './assets/brb.mp4'],
     10: ['./assets/work-11.png', './assets/work-11-2.png', './assets/work-11-3.png'],
     11: ['./assets/work-12.png', './assets/work-12-2.png', './assets/work-12-3.png'],
 };
