@@ -1,346 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miraga Niftalizade's Portfolio</title>
-    <link rel="stylesheet" href="./output.css">
-    <link rel="stylesheet" href="./input.css">
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>Portfolio – Miraga Niftalizade</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
+<body>
 
-<body class="font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
-    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
-        <img src="./assets/header-bg-color.png" alt="" class="w-full" />
-    </div>
-
-  <nav id="navbar" class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
-
-    <p class="bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20 sr-only">
-        Hidden
-    </p>
-
-    <a href="index.html">
-        <img src="./assets/logo.png" alt="Logo" class="w-28 cursor-pointer mr-14 dark:hidden" />
-        <img src="./assets/logo_dark.png" alt="Logo" class="w-28 cursor-pointer mr-14 hidden dark:block" />
-    </a>
-
-    <!-- DESKTOP MENU -->
-    <ul id="navLink"
-        class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent">
-
-        <li><a class="hover:text-gray-500 dark:hover:text-gray-300 transition" href="index.html#top">Home</a></li>
-        <li><a class="hover:text-gray-500 dark:hover:text-gray-300 transition" href="index.html#about">About me</a></li>
-        <li><a class="hover:text-gray-500 dark:hover:text-gray-300 transition" href="portfolio.html">Portfolio</a></li>
-        <li><a class="hover:text-gray-500 dark:hover:text-gray-300 transition" href="index.html#contact">Contact me</a></li>
-
-    </ul>
-
-    <div class="flex items-center gap-4">
-
-        <!-- THEME TOGGLE -->
-        <button onclick="toggleTheme()">
-            <img src="./assets/moon_icon.png" alt="" class="w-5 dark:hidden" />
-            <img src="./assets/sun_icon.png" alt="" class="w-5 hidden dark:block" />
-        </button>
-
-        <!-- CONTACT BUTTON -->
-        <a href="index.html#contact"
-            class="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30">
-            Contact
-            <img src="./assets/arrow-icon.png" alt="" class="w-3 dark:hidden" />
-            <img src="./assets/arrow-icon-dark.png" alt="" class="w-3 hidden dark:block" />
+    <!-- NAV -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            <img src="./assets/logo.png" alt="Logo" class="logo-light">
+            <img src="./assets/logo_dark.png" alt="Logo" class="logo-dark">
         </a>
-
-        <!-- MOBILE BUTTON -->
-        <button class="block md:hidden ml-3" onclick="openMenu()">
-            <img src="./assets/menu-black.png" alt="" class="w-6 dark:hidden" />
-            <img src="./assets/menu-white.png" alt="" class="w-6 hidden dark:block" />
-        </button>
-
-    </div>
-
-    <!-- MOBILE MENU -->
-    <ul id="mobileMenu"
-        class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
-
-        <div class="absolute right-6 top-6" onclick="closeMenu()">
-            <img src="./assets/close-black.png" alt="" class="w-5 cursor-pointer dark:hidden" />
-            <img src="./assets/close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block" />
-        </div>
-
-        <li><a href="index.html#top" onclick="closeMenu()">Home</a></li>
-        <li><a href="index.html#about" onclick="closeMenu()">About me</a></li>
-        <li><a href="portfolio.html" onclick="closeMenu()">Portfolio</a></li>
-        <li><a href="index.html#contact" onclick="closeMenu()">Contact me</a></li>
-
-    </ul>
-
-</nav>
-    <!-- ----- home section ------ -->
-    <div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
-        <img src="./assets/profile.png" alt="" class="rounded-full w-32" />
-        <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">
-            Hi! I&apos;m Miraga Niftalizade
-            <img src="./assets/hand-icon.png" alt="" class="w-6 mb-1" />
-        </h3>
-        <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">Senior Packaging, Brand, UI/UX Designer, Web Designer</h1>
-        <p class="max-w-2xl mx-auto font-Ovo">I specialize in retail-ready packaging, brand identity systems, and modern web design.
-With 14+ years of experience, I create production-ready visuals that balance creativity, precision, and scalability across print and digital platforms.</p>
-
-        <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
-            <a href="#contact"
-                class="px-10 py-2.5 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">
-                contact me <img src="./assets/right-arrow-white.png" alt="" class="w-4" />
-            </a>
-
-            <a href="./assets/CV.pdf" download
-                class="px-10 py-2.5 rounded-full border border-gray-300 dark:border-white/25 hover:bg-slate-100/70 dark:hover:bg-darkHover flex items-center gap-2 bg-white dark:bg-transparent dark:text-white">
-                my resume <img src="./assets/download-icon.png" alt="" class="w-4 dark:invert" />
-            </a>
-        </div>
-    </div>
-
-    <!-- ----- about me section ------ -->
-       <!-- ----- about me section ------ -->
-    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
-    <h4 class="text-center mb-2 text-lg font-Ovo">Introduction</h4>
-    <h2 class="text-center text-5xl font-Ovo">About me</h2>
-
-    <div class="flex w-full flex-col items-center gap-20 my-20">
-        
-        <div class="flex-1 w-full flex flex-col items-center text-center">
-            
-            <p class="mb-10 max-w-2xl font-Ovo mx-auto">
-                I am a Senior Multidisciplinary Designer with 13+ years of experience in packaging, brand identity, and digital design. I specialize in creating retail-ready packaging systems that balance visual impact, regulatory accuracy, and production precision. Alongside print expertise, I design modern UI/UX interfaces and responsive web experiences, ensuring brand consistency across physical and digital touchpoints.
-                I work effectively in remote, cross-functional teams and focus on delivering scalable, production-ready design solutions with clarity and efficiency.
-            </p>
-
-            <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl w-full">
-                
-                <li class="border border-gray-300 dark:border-white/30 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:hover:shadow-white/80 dark:hover:bg-darkHover/50">
-                    <img src="./assets/code-icon.png" alt="" class="w-7 mx-auto mt-3 dark:hidden">
-                    <img src="./assets/code-icon-dark.png" alt="" class="w-7 mx-auto mt-3 hidden dark:block">
-                    <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Skills</h3>
-                    <ul class="text-gray-600 text-sm dark:text-white/80 space-y-2 pl-4 text-left inline-block">
-                        <li>• Graphic & Visual Design</li>
-                        <li>• UI/UX Design</li>
-                        <li>• Branding & Identity Systems</li>
-                        <li>• Packaging Design</li>
-                        <li>• Responsive Web Design</li>
-                        <li>• HTML & CSS (Basic to Intermediate)</li>
-                        <li>• Digital & Social Media Creatives</li>
-                        <li>• Editorial Layout & Publication Design</li>
-                    </ul>
-                </li>
-
-                <li class="border border-gray-300 dark:border-white/30 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:hover:shadow-white/80 dark:hover:bg-darkHover/50">
-                    <img src="./assets/edu-icon.png" alt="" class="w-7 mx-auto mt-3 dark:hidden">
-                    <img src="./assets/edu-icon-dark.png" alt="" class="w-7 mx-auto mt-3 hidden dark:block">
-                    <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Education</h3>
-                    <p class="text-gray-600 text-sm dark:text-white/80">
-                        Master’s Degree – Graphic Design<br>
-                        Istanbul Topkapi University
-                    </p>
-                    <p class="text-gray-600 text-sm dark:text-white/80 mt-4">
-                        Bachelor’s Degree – Business Administration<br>
-                        Azerbaijan Cooperation University
-                    </p>
-                </li>
-
-                <li class="border border-gray-300 dark:border-white/30 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:hover:shadow-white/80 dark:hover:bg-darkHover/50">
-                    <img src="./assets/project-icon.png" alt="" class="w-7 mx-auto mt-3 dark:hidden">
-                    <img src="./assets/project-icon-dark.png" alt="" class="w-7 mx-auto mt-3 hidden dark:block">
-                    <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Experience</h3>
-                    <p class="text-gray-600 text-sm dark:text-white/80">
-                        With over 14 years of experience, I have worked on branding, comprehensive brand identity systems, packaging design, UI/UX and responsive web design projects across various industries, delivering creative, strategic and user-centered solutions that balance strong visual impact with functionality.
-                    </p>
-                </li>
-            </ul>
-
-            <h4 class="my-8 text-gray-700 font-Ovo dark:text-white/80">Tools i use</h4>
-
-            <ul class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 w-full">
-                <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-white/30 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                    <img src="./assets/ps.png" alt="" class="w-5 sm:w-7">
-                </li>
-                <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-white/30 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                    <img src="./assets/illustator.png" alt="" class="w-5 sm:w-7">
-                </li>
-                <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-white/30 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                    <img src="./assets/indesign.png" alt="" class="w-5 sm:w-7">
-                </li>
-                <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-white/30 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                    <img src="./assets/figma.png" alt="" class="w-5 sm:w-7">
-                </li>
-                <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-white/30 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                    <img src="./assets/vscode.png" alt="" class="w-5 sm:w-7">
-                </li>
-                <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-white/30 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                    <img src="./assets/cdr.png" alt="" class="w-5 sm:w-7">
-                </li>
-                <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-white/30 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                    <img src="./assets/ae.png" alt="" class="w-5 sm:w-7">
-                </li>
-                <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-white/30 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                    <img src="./assets/pr.png" alt="" class="w-5 sm:w-7">
-                </li>
-            </ul>
-        </div>
-    </div>
-    </div>
-
-    <!-- My Work Section -->
-    <div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
-        <h4 class="text-center mb-2 text-lg font-Ovo">My portfolio</h4>
-        <h2 class="text-center text-5xl font-Ovo">My latest work</h2>
-        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Welcome to my web development portfolio! Explore a
-            collection of projects showcasing my expertise in front-end development.</p>
-        <div class="grid grid-cols-auto my-10 gap-5 dark:text-black">
-            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                style="background-image: url('./assets/work-1.png');">
-                <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Frontend project</h2>
-                        <p class="text-sm text-gray-700">Web Design</p>
-                    </div>
-                    <div
-                        class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./assets/send-icon.png" alt="" class="w-5">
-                    </div>
-                </div>
-            </div>
-            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                style="background-image: url('./assets/work-2.png');">
-                <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Geo based app</h2>
-                        <p class="text-sm text-gray-700">mobile app</p>
-                    </div>
-                    <div
-                        class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./assets/send-icon.png" alt="" class="w-5">
-                    </div>
-                </div>
-            </div>
-            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                style="background-image: url('./assets/work-3.png');">
-                <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Photography site</h2>
-                        <p class="text-sm text-gray-700">Web Design</p>
-                    </div>
-                    <div
-                        class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./assets/send-icon.png" alt="" class="w-5">
-                    </div>
-                </div>
-            </div>
-            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                style="background-image: url('./assets/work-4.png');">
-                <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">UI/UX designing</h2>
-                        <p class="text-sm text-gray-700">UI/UX Design</p>
-                    </div>
-                    <div
-                        class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./assets/send-icon.png" alt="" class="w-5">
-                    </div>
-                </div>
-            </div>
-        </div><a href="#"
-            class="w-max flex items-center justify-center gap-2 text-gray-700 border border-gray-300 dark:border-white/25 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full py-2 px-8 mx-auto my-20 duration-300 dark:text-white">Show
-            more<img src="./assets/right-arrow-bold.png" alt="" class="w-4 dark:hidden"><img
-                src="./assets/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block"></a>
-    </div>
-
-<!-- Counter section -->
-<section class="counter-section">
-  <div class="counter-container">
-
-    <div class="counter-box">
-      <h3 class="counter" data-target="8">0</h3>
-      <p>Years Experience</p>
-    </div>
-
-    <div class="counter-box">
-      <h3 class="counter" data-target="600">0</h3>
-      <p>Happy Clients</p>
-    </div>
-
-    <div class="counter-box">
-      <h3 class="counter" data-target="9">0</h3>
-      <p>Awards Win</p>
-    </div>
-
-    <div class="counter-box">
-      <h3 class="counter" data-target="451">0</h3>
-      <p>Cups of Coffee</p>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-    <!-- Contact me section -->
-    <div id="contact"
-        class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./assets/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none">
-        <h4 class="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
-        <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
-        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">I'd love to hear from you! If you have any
-            questions, comments or feedback, please use the form below.
-        </p>
-        <form class="max-w-2xl mx-auto">
-            <input type="hidden" name="subject" value="Miraga Nift - New form Submission">
-            <div class="grid grid-cols-auto gap-6 mt-10 mb-8">
-                <input type="text" placeholder="Enter your name"
-                    class="flex-1 px-3 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white dark:bg-darkHover/30"
-                    ] required="" name="name">
-                <input type="email" placeholder="Enter your email" ]
-                    class="flex-1 px-3 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white dark:bg-darkHover/30"
-                    required="" name="email">
-            </div>
-            <textarea rows="6" placeholder="Enter your message"
-                class="w-full px-4 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white mb-6 dark:bg-darkHover/30"
-                required="" name="message"></textarea>
-            <button type="submit"
-                class="py-2 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border dark:border-white/30 dark:hover:bg-darkHover">
-                Submit now
-                <img src="./assets/right-arrow-white.png" alt="" class="w-4">
+        <ul class="nav-links">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="index.html#about">About me</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact me</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button onclick="toggleTheme()" class="theme-btn">
+                <span class="moon">🌙</span>
+                <span class="sun">☀️</span>
             </button>
-            <p class="mt-4"></p>
-        </form>
+            <a href="index.html#contact" class="contact-btn">Contact <span>→</span></a>
+            <button class="hamburger" onclick="openMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <ul class="mobile-menu" id="mobileMenu">
+            <button class="close-menu" onclick="closeMenu()">✕</button>
+            <li><a href="index.html#top" onclick="closeMenu()">Home</a></li>
+            <li><a href="index.html#about" onclick="closeMenu()">About me</a></li>
+            <li><a href="index.html#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="portfolio.html" onclick="closeMenu()">Portfolio</a></li>
+            <li><a href="index.html#contact" onclick="closeMenu()">Contact me</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="portfolio-hero">
+        <p class="section-label">My Work</p>
+        <h1>Portfolio</h1>
+        <p class="hero-sub">A curated collection of branding, packaging & digital design projects.</p>
+    </section>
+
+    <!-- FILTER TABS -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="packaging">Packaging</button>
+        <button class="filter-btn" data-filter="uiux">UI/UX</button>
+        <button class="filter-btn" data-filter="digital">Digital</button>
     </div>
 
-    <!-- Footer -->
-    <div class="mt-20">
-        <div class="text-center">
-            <div class="w-max flex items-center gap-2 mx-auto">
-                <img src="./assets/mail_icon.png" alt="" class="w-5 dark:hidden">
-                <img src="./assets/mail_icon_dark.png" alt="" class="w-5 hidden dark:block">
-                <a href="#!">miraga019@gmail.com</a>
+    <!-- GRID -->
+    <main class="portfolio-grid" id="portfolioGrid">
+
+        <div class="portfolio-item" data-category="branding" data-title="GameKings Logo Design" data-desc="GameKings is a modern gaming brand identity built around the concept of leadership and competitive strength. The crown symbol represents dominance and authority in the gaming world, while the integrated controller elements highlight the brand’s digital focus. The bold red color conveys energy, passion, and intensity, creating a powerful and memorable visual presence.">
+            <div class="item-img" style="background-image: url('./assets/work-1.png')"></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>GameKings Logo Design</h3>
+                <span class="view-btn">View →</span>
             </div>
         </div>
-        <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-3">
-            <p>© 2026 </p> 
-            <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
-                <li><a target="_blank" href="#!">LinkedIn</a></li>
-            </ul>
+
+        <div class="portfolio-item" data-category="uiux" data-title="Halcyon Watches Logo design" data-desc="Halcyon Watches is a handcrafted wooden watch brand identity inspired by natural textures and timeless craftsmanship. The circular badge form reflects precision and tradition, while the tree-ring detail at the center symbolizes growth, sustainability, and the organic essence of wood. The monochrome palette enhances the vintage aesthetic, creating a strong, authentic, and heritage-driven visual identity.">
+            <div class="item-img" style="background-image: url('./assets/work-2.png')"></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>Halcyon Watches Logo design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="digital" data-title="John Lowry Photography logo desıgn" data-desc="The icon is created by combining the initials “J” and “L” into a clean, geometric monogram that subtly forms a camera shape. The circular element represents the camera lens, reinforcing the photography concept while maintaining a minimal and modern aesthetic. The structured lines and balanced composition reflect precision, professionalism, and visual clarity.">
+            <div class="item-img" style="background-image: url('./assets/work-3.png')"></div>
+            <div class="item-overlay">
+                <span class="item-cat">Digital</span>
+                <h3>John Lowry Photography logo</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="packaging" data-title="Whole Soybean Salad – Packaging Design" data-desc="A clean, modern packaging design focused on freshness and natural ingredients. The bold green panel and earthy tones reflect health and sustainability, while the transparent window highlights product quality. The minimal typography and icon system clearly communicate key benefits in a strong retail-ready presentation.">
+            <div class="item-img" style="background-image: url('./assets/work-4.png')"></div>
+            <div class="item-overlay">
+                <span class="item-cat">Packaging</span>
+                <h3>Whole Soybean Salad – Packaging Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="packaging" data-title="TruPoint Knife Sharpener – Packaging Design" data-desc="A bold and functional packaging design created to emphasize performance, durability, and ease of use. The clean layout combines strong typography with green accents to highlight key product features such as the 3-stage sharpening system. Clear visual hierarchy and product-focused imagery ensure strong shelf impact and effective communication in retail environments.">
+            <div class="item-img" style="background-image: url('./assets/work-5.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Packaging</span>
+                <h3>TruPoint Knife Sharpener – Packaging Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+        <div class="portfolio-item" data-category="packaging" data-title="Makolli Melt Butter Biscuits – Packaging Design" data-desc="A warm and appetizing packaging design created to highlight the rich, buttery flavor of the product. The golden tones and splash-of-milk visual emphasize freshness and indulgence, while bold typography ensures strong shelf visibility. The overall layout balances premium perception with mass-market appeal, delivering a clean and impactful retail presence.">
+            <div class="item-img" style="background-image: url('./assets/work-6.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Packaging</span>
+                <h3>Makolli Melt Butter Biscuits – Packaging Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+
+           <div class="portfolio-item" data-category="branding" data-title="The Seafood Company – Logo Design" data-desc="A clean and modern logo design combining a house-shaped outline with a fish symbol to represent freshness and trusted sourcing. The geometric structure reflects reliability and professionalism, while the blue color palette communicates quality, purity, and a strong connection to the sea. The result is a simple yet memorable identity suitable for a contemporary seafood brand.">
+            <div class="item-img" style="background-image: url('./assets/work-7.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>The Seafood Company – Logo Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+            <div class="portfolio-item" data-category="branding" data-title="Data Wave – Logo Design" data-desc="A modern technology-focused logo that visualizes data flow through a dynamic wave form. The orange waveform symbolizes connectivity, movement, and continuous digital transmission, while the motion-inspired typography reinforces speed and innovation. The clean contrast between gray and orange creates a strong, contemporary identity suitable for a data-driven brand.">
+            <div class="item-img" style="background-image: url('./assets/work-8.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>Data Wave – Logo Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+             <div class="portfolio-item" data-category="UI/UX" data-title="Thrills – Social Event App Logo Design" data-desc="Thrills is a social media app that connects people through real-life experiences, from festivals to casual meetups. The minimal icon subtly forms a smile, representing connection and shared excitement. The vibrant blue palette and clean typography create a modern, energetic identity tailored to a young, experience-driven audience.">
+            <div class="item-img" style="background-image: url('./assets/work-9.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">UI/UX</span>
+                <h3>Thrills – Social Event App Logo Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+
+             <div class="portfolio-item" data-category="branding" data-title="Be Right Burger - Logo Design" data-desc="I redesigned the initials BRB (Be Right Burger) into a burger-inspired icon system, using red to represent meat and bold flavor, yellow for the bun, and green to reflect freshness and quality. The result is a simple yet memorable visual identity that connects directly to the brand’s core product, supported by a presentation video I edited to showcase the logo reveal and overall concept.">
+            <div class="item-img" style="background-image: url('./assets/work-10.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Branding</span>
+                <h3>Be Right Burger - Logo Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+
+           <div class="portfolio-item" data-category="packaging" data-title="The Berry Company | Fruit Juice Packaging Design" data-desc="I designed carton and can packaging for The Berry Company, using a clean, modern style that highlights freshness and flavor through bold color palettes and minimal line illustrations for a premium shelf presence.">
+            <div class="item-img" style="background-image: url('./assets/work-11.png'); "></div>
+            <div class="item-overlay">
+                <span class="item-cat">Packaging</span>
+                <h3>The Berry Company | Fruit Juice Packaging Design</h3>
+                <span class="view-btn">View →</span>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+        <div class="lightbox-content">
+            <button class="lb-close" onclick="closeLightbox()">✕</button>
+            <button class="lb-prev" onclick="prevSlide()">‹</button>
+            <button class="lb-next" onclick="nextSlide()">›</button>
+
+            <div class="lb-slides" id="lbSlides">
+                <!-- slides injected by JS -->
+            </div>
+
+            <div class="lb-info">
+                <span class="lb-cat" id="lbCat"></span>
+                <h2 id="lbTitle"></h2>
+                <p id="lbDesc"></p>
+                <div class="lb-dots" id="lbDots"></div>
+            </div>
         </div>
     </div>
 
-    <script src="./script.js"></script>
+    
+<!-- Contact me section -->
+<div id="contact"
+    class="w-full px-[12%] py-10 scroll-mt-20">
+    <h4 class="text-center mb-2 text-lg">Connect with me</h4>
+    <h2 class="text-center text-5xl">Get in touch</h2>
+    <p class="text-center max-w-2xl mx-auto mt-5 mb-12">I'd love to hear from you! If you have any
+        questions, comments or feedback, please use the form below.
+    </p>
+    <form class="max-w-2xl mx-auto">
+        <input type="hidden" name="subject" value="Miraga Nift - New form Submission">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <input type="text" placeholder="Enter your name"
+                style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); outline: none; font-family: 'Montserrat', sans-serif;"
+                required name="name">
+            <input type="email" placeholder="Enter your email"
+                style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); outline: none; font-family: 'Montserrat', sans-serif;"
+                required name="email">
+        </div>
+        <textarea rows="6" placeholder="Enter your message"
+            style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); outline: none; margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif; resize: vertical;"
+            required name="message"></textarea>
+        <button type="submit"
+            style="display: flex; align-items: center; gap: 8px; padding: 10px 32px; background: linear-gradient(135deg, #b820e6, #da7d20); color: white; border: none; border-radius: 999px; cursor: pointer; margin: 0 auto; font-family: 'Montserrat', sans-serif;">
+            Submit now →
+        </button>
+        <p class="mt-4"></p>
+    </form>
+</div>
+
+<!-- Footer -->
+<div style="margin-top: 5rem;">
+    <div style="text-align: center;">
+        <a href="mailto:miraga019@gmail.com" style="color: var(--text2); text-decoration: none; font-size: 0.9rem;">miraga019@gmail.com</a>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); margin: 3rem 10% 0; padding: 1rem 0; flex-wrap: wrap; gap: 1rem;">
+        <p style="color: var(--text2); font-size: 0.85rem;">© 2026</p>
+        <ul style="display: flex; gap: 2rem; list-style: none;">
+            <li><a target="_blank" href="#!" style="color: var(--text2); text-decoration: none; font-size: 0.85rem;">LinkedIn</a></li>
+        </ul>
+    </div>
+</div>
+    <script src="portfolio.js"></script>
 
 </body>
-
 </html>
