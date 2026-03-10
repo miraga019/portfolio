@@ -440,8 +440,7 @@ body {
 .lb-slides {
     position: relative;
     width: 100%;
-    min-height: 300px;
-    max-height: 60vh;
+    aspect-ratio: 1/1;  /* ← BU SATIRI SİL */
     overflow: hidden;
     background: #000;
 }
