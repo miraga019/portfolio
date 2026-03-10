@@ -440,7 +440,8 @@ body {
 .lb-slides {
     position: relative;
     width: 100%;
-    aspect-ratio: 1/1;
+    min-height: 300px;
+    max-height: 60vh;
     overflow: hidden;
     background: #000;
 }
@@ -448,6 +449,7 @@ body {
 .lb-slide {
     position: absolute;
     inset: 0;
+   background-size: contain;
     background-size: cover;
     background-position: center;
     opacity: 0;
