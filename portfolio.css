@@ -318,11 +318,14 @@ body {
     opacity: 1;
 }
 
+/* =====================
+   OVERLAY TEXT - BEYAZ
+   ===================== */
 .item-cat {
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent2);
+    color: #ffffff;
     font-weight: 500;
     margin-bottom: 4px;
 }
@@ -331,13 +334,13 @@ body {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
     font-weight: 400;
-    color: white;
+    color: #ffffff;
     margin-bottom: 8px;
 }
 
 .view-btn {
     font-size: 0.8rem;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.9);
     letter-spacing: 0.05em;
 }
 
@@ -381,7 +384,7 @@ body {
     overflow: hidden;
     border: 1px solid var(--border);
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 1fr auto;
     max-height: 90vh;
     overflow-y: auto;
     transform: scale(0.92);
@@ -437,7 +440,7 @@ body {
 .lb-slides {
     position: relative;
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/3;
     overflow: hidden;
     background: #000;
 }
@@ -455,6 +458,9 @@ body {
     opacity: 1;
 }
 
+/* =====================
+   LIGHTBOX INFO - BEYAZ
+   ===================== */
 .lb-info {
     padding: 1.5rem 2rem;
 }
@@ -463,7 +469,7 @@ body {
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: #ffffff;
     font-weight: 500;
 }
 
@@ -472,12 +478,12 @@ body {
     font-size: 1.6rem;
     font-weight: 400;
     margin: 6px 0 10px;
-    color: var(--text);
+    color: #ffffff;
 }
 
 .lb-info p {
     font-size: 0.9rem;
-    color: var(--text2);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.7;
     max-width: 600px;
 }
@@ -508,6 +514,7 @@ body {
     .lb-info h2 { font-size: 1.2rem; }
     .lb-info p { font-size: 0.82rem; }
 }
+
 /* =====================
    CONTACT & FOOTER
    ===================== */
@@ -572,7 +579,3 @@ body {
 #contact textarea::placeholder {
     color: var(--text2);
 }
-
-/* Footer */
-footer-wrap {
-    mar
