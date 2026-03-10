@@ -584,3 +584,15 @@ body {
 #contact textarea::placeholder {
     color: var(--text2);
 }
+
+@media (max-width: 700px) {
+    .lightbox-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        width: min(95vw, 500px);
+    }
+    .lb-slides {
+        min-height: 250px;
+        height: 250px;
+    }
+}
