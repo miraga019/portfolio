@@ -378,15 +378,15 @@ body {
 .lightbox-content {
     position: relative;
     z-index: 10;
-    width: min(92vw, 900px);        /* 600px → 900px */
+    width: min(92vw, 600px);
     background: var(--card-bg);
     border-radius: 18px;
     overflow: hidden;
     border: 1px solid var(--border);
     display: grid;
-    grid-template-columns: 1fr 1fr; /* ← YATAY LAYOUT */
-    grid-template-rows: 1fr;        /* ← tek satır */
+    grid-template-rows: 1fr auto;
     max-height: 90vh;
+    overflow-y: auto;
     transform: scale(0.92);
     transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
     box-shadow: 0 40px 100px rgba(0,0,0,0.5);
@@ -440,8 +440,7 @@ body {
 .lb-slides {
     position: relative;
     width: 100%;
-    height: 100%;
-    min-height: 400px;
+    aspect-ratio: 4/3;
     overflow: hidden;
     background: #000;
 }
@@ -449,7 +448,7 @@ body {
 .lb-slide {
     position: absolute;
     inset: 0;
-   background-size: contain;
+    background-size: cover;
     background-position: center;
     opacity: 0;
     transition: opacity 0.4s;
@@ -463,11 +462,7 @@ body {
    LIGHTBOX INFO - BEYAZ
    ===================== */
 .lb-info {
-    padding: 2rem;
-    overflow-y: auto;              /* ← uzun yazılar scroll olur */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 1.5rem 2rem;
 }
 
 .lb-cat {
@@ -583,16 +578,4 @@ body {
 #contact input::placeholder,
 #contact textarea::placeholder {
     color: var(--text2);
-}
-
-@media (max-width: 700px) {
-    .lightbox-content {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        width: min(95vw, 500px);
-    }
-    .lb-slides {
-        min-height: 250px;
-        height: 250px;
-    }
 }
