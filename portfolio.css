@@ -440,7 +440,7 @@ body {
 .lb-slides {
     position: relative;
     width: 100%;
-    aspect-ratio: 1/1;  /* ← BU SATIRI SİL */
+    aspect-ratio: 1/1;
     overflow: hidden;
     background: #000;
 }
@@ -449,7 +449,6 @@ body {
     position: absolute;
     inset: 0;
    background-size: contain;
-    background-size: cover;
     background-position: center;
     opacity: 0;
     transition: opacity 0.4s;
