@@ -72,6 +72,7 @@ let slides = [];
 // 9  → work-10 (Be Right Burger)
 // 10 → work-11 (Berry Company)
 // 11 → work-12 (Globtag)
+// 12 → work-13 (Boost Studios)
 
 const mockups = {
     0:  ['./assets/work-1.png'],
@@ -86,7 +87,7 @@ const mockups = {
     9:  ['./assets/work-10.png', './assets/brb.mp4'],
     10: ['./assets/work-11.png', './assets/work-11-2.png', './assets/work-11-3.png'],
     11: ['./assets/work-12.png', './assets/work-12-2.png', './assets/work-12-3.png'],
-    12:  ['./assets/work-13.jpg'],
+    12: ['./assets/work-13.jpg'],
 };
 
 items.forEach((item, index) => {
@@ -149,7 +150,6 @@ function goToSlide(n) {
     const allSlides = document.querySelectorAll('.lb-slide');
     const allDots = document.querySelectorAll('.lb-dot');
 
-    // Mevcut slide'daki videoyu durdur
     const currentVideo = allSlides[currentSlide]?.querySelector('video');
     if (currentVideo) currentVideo.pause();
 
@@ -161,7 +161,6 @@ function goToSlide(n) {
     allSlides[currentSlide]?.classList.add('active');
     allDots[currentSlide]?.classList.add('active');
 
-    // Yeni slide video ise oynat
     const nextVideo = allSlides[currentSlide]?.querySelector('video');
     if (nextVideo) nextVideo.play();
 }
