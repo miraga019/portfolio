@@ -24,8 +24,8 @@
 .dark {
     --bg: #11001f;
     --bg2: #1a0030;
-    --text: #f0e8ff;
-    --text2: #9b8cae;
+    --text: #ffffff;
+    --text2: #ffffff;
     --border: rgba(255,255,255,0.08);
     --card-bg: #1e0038;
     --nav-bg: rgba(17,0,31,0.9);
@@ -80,6 +80,10 @@ body {
     transition: color 0.2s;
 }
 
+.dark .nav-links a {
+    font-weight: 500;
+}
+
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--accent);
@@ -115,6 +119,11 @@ body {
     color: var(--text);
     transition: background 0.2s, border-color 0.2s;
 }
+
+.dark .contact-btn {
+    font-weight: 600;
+}
+
 .contact-btn:hover {
     background: var(--accent);
     border-color: var(--accent);
@@ -159,6 +168,10 @@ body {
     text-decoration: none;
     color: var(--text);
     font-size: 1.1rem;
+}
+
+.dark .mobile-menu a {
+    font-weight: 600;
 }
 
 .close-menu {
@@ -211,6 +224,11 @@ body {
     font-size: 1rem;
     max-width: 500px;
     margin: 0 auto;
+    font-weight: 400;
+}
+
+.dark .hero-sub {
+    font-weight: 500;
 }
 
 /* =====================
@@ -236,6 +254,10 @@ body {
     transition: all 0.25s;
 }
 
+.dark .filter-btn {
+    font-weight: 600;
+}
+
 .filter-btn:hover {
     border-color: var(--accent);
     color: var(--accent);
@@ -245,6 +267,7 @@ body {
     background: linear-gradient(135deg, var(--accent), var(--accent2));
     border-color: transparent;
     color: white;
+    font-weight: 600;
 }
 
 /* =====================
@@ -372,7 +395,6 @@ body {
     backdrop-filter: blur(14px);
 }
 
-/* Lightbox kutu — scroll edilebilir, görsel + yazı alt alta */
 .lightbox-content {
     position: relative;
     z-index: 10;
@@ -386,7 +408,6 @@ body {
     transform: scale(0.92);
     transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
     box-shadow: 0 40px 100px rgba(0,0,0,0.55);
-    /* scroll bar gizle */
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -396,9 +417,8 @@ body {
     transform: scale(1);
 }
 
-/* Kapatma butonu */
 .lb-close {
-    position: fixed; /* sticky gibi davransın */
+    position: fixed;
     top: calc(50vh - 44vh);
     right: calc(50vw - min(46vw, 280px));
     z-index: 30;
@@ -417,10 +437,9 @@ body {
 }
 .lb-close:hover { background: var(--accent); }
 
-/* Önceki/sonraki butonlar — görselin ortasında */
 .lb-prev, .lb-next {
     position: absolute;
-    top: calc(min(92vw, 560px) / 2); /* görselin yarısı */
+    top: calc(min(92vw, 560px) / 2);
     transform: translateY(-50%);
     z-index: 30;
     width: 40px; height: 40px;
@@ -440,7 +459,6 @@ body {
 .lb-next { right: 14px; }
 .lb-prev:hover, .lb-next:hover { background: var(--accent); }
 
-/* Görsel alanı — tam kare, görsel bozulmaz */
 .lb-slides {
     position: relative;
     width: 100%;
@@ -464,7 +482,6 @@ body {
     opacity: 1;
 }
 
-/* Yazı alanı — görselin hemen altında */
 .lb-info {
     padding: 1.4rem 1.75rem 1.6rem;
     background: var(--card-bg);
@@ -489,10 +506,19 @@ body {
     margin-bottom: 10px;
 }
 
+.dark .lb-info h2 {
+    font-weight: 600;
+}
+
 .lb-info p {
     font-size: 0.85rem;
     color: var(--text2);
     line-height: 1.7;
+    font-weight: 400;
+}
+
+.dark .lb-info p {
+    font-weight: 500;
 }
 
 .lb-dots {
@@ -516,7 +542,6 @@ body {
     transform: scale(1.3);
 }
 
-/* Mobil */
 @media (max-width: 600px) {
     .lightbox-content {
         width: min(96vw, 420px);
@@ -568,6 +593,11 @@ body {
     font-size: 0.95rem;
     max-width: 500px;
     margin: 0 auto 3rem;
+    font-weight: 400;
+}
+
+.dark #contact > p {
+    font-weight: 600;
 }
 
 #contact form {
@@ -586,6 +616,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     transition: border-color 0.2s;
+}
+
+.dark #contact input,
+.dark #contact textarea {
+    font-weight: 500;
 }
 
 #contact input:focus,
