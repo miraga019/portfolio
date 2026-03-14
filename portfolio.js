@@ -73,21 +73,29 @@ let slides = [];
 // 10 → work-11 (Berry Company)
 // 11 → work-12 (Globtag)
 // 12 → work-13 (Boost Studios)
+// 13 → work-14 (Oisix label)
 
 const mockups = {
     0:  ['./assets/work-1.png'],
     1:  ['./assets/work-2.png'],
     2:  ['./assets/work-3.png'],
-    3:  ['./assets/work-4.png'],
-    4:  ['./assets/work-5.png', './assets/work-5-2.png'],
+    3:  ['./assets/work-15.png', './assets/work-15-2.png'],
+    4:  ['./assets/work-5.png', './assets/work-5-2.png'], 
     5:  ['./assets/work-6.png', './assets/work-6-2.png'],
     6:  ['./assets/work-7.png'],
     7:  ['./assets/work-8.png'],
     8:  ['./assets/work-9.png', './assets/work-9-2.png', './assets/work-9-3.png'],
     9:  ['./assets/work-10.png', './assets/brb.mp4'],
-    10: ['./assets/work-11.png', './assets/work-11-2.png', './assets/work-11-3.png'],
+    10: ['./assets/work-17.png', './assets/work-17-2.png'],
     11: ['./assets/work-12.png', './assets/work-12-2.png', './assets/work-12-3.png'],
     12: ['./assets/work-13.jpg'],
+    13: ['./assets/work-14.png'],
+    14: ['./assets/work-4.png'],
+    15: ['./assets/work-16.png', './assets/work-16-2.png'],
+    16: ['./assets/work-11.png', './assets/work-11-2.png', './assets/work-11-3.png'],
+    17: ['./assets/work-18.png', './assets/work-18-2.png'],
+    18: ['./assets/work-19.png'],
+    19: ['./assets/work-20.png'],
 };
 
 items.forEach((item, index) => {
