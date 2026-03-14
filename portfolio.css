@@ -11,8 +11,8 @@
     --bg2: #f7f4f9;
     --text: #0f0a1a;
     --text2: #6b6478;
-    --accent: #b820e6;
-    --accent2: #da7d20;
+    --accent: #1900ff;
+    --accent2: #ff00bf;
     --border: rgba(0,0,0,0.08);
     --card-bg: #ffffff;
     --nav-bg: rgba(255,255,255,0.85);
@@ -25,6 +25,8 @@
     --bg: #11001f;
     --bg2: #1a0030;
     --text: #ffffff;
+    --accent: #1900ff;
+    --accent2: #ff00bf;
     --text2: #ffffff;
     --border: rgba(255,255,255,0.08);
     --card-bg: #1e0038;
@@ -76,10 +78,6 @@ body {
     background: transparent;
 }
 
-.nav-links li + li::before {
-    content: '';
-}
-
 .nav-links a {
     text-decoration: none;
     color: var(--text2);
@@ -106,17 +104,25 @@ body {
     gap: 1rem;
 }
 
+/* Theme button with PNG icons */
 .theme-btn {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem;
     line-height: 1;
+    padding: 0;
+}
+
+.theme-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
 }
 
 .theme-btn .sun { display: none; }
 .dark .theme-btn .moon { display: none; }
-.dark .theme-btn .sun { display: inline; }
+.dark .theme-btn .sun { display: block; }
 
 .contact-btn {
     display: flex;
