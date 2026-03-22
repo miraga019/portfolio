@@ -97,6 +97,7 @@ const mockups = {
     18: ['./assets/work-19.png'],
     19: ['./assets/work-20.png'],
     20: ['./assets/work-21.png'],
+    21: ['./assets/work-22.png'],
 };
 
 items.forEach((item, index) => {
