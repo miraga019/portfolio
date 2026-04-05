@@ -104,8 +104,8 @@ const mockups = {
     25: ['./assets/work-26.png', './assets/work-26-2.png', './assets/work-26-3.png', './assets/work-26-4.png'],
     26: ['./assets/work-27.jpg', './assets/work-27-2.jpg', './assets/work-27-3.jpg', './assets/work-27-4.jpg', './assets/work-27-5.jpg', './assets/work-27-6.jpg', './assets/work-27-7.jpg', './assets/work-27-8.jpg', './assets/work-27-9.jpg', './assets/work-27-10.jpg', './assets/work-27-11.jpg', './assets/work-27-12.jpg'],
     27: ['./assets/work-28.jpg', './assets/work-28-2.jpg', './assets/work-28-3.jpg', './assets/work-28-4.jpg', './assets/work-28-5.jpg', './assets/work-28-6.jpg', './assets/work-28-7.jpg', './assets/work-28-8.jpg', './assets/work-28-9.jpg', './assets/work-28-10.jpg', './assets/work-28-11.jpg', './assets/work-28-12.jpg', './assets/work-28-13.jpg', './assets/work-28-14.jpg'],
-    28: ['./assets/work-29.jpg', './assets/work-29-2.jpg', './assets/work-29-3.jpg'],
-    29: ['./assets/work-30.png', './assets/work-30-2.png', './assets/work-30-3.png', './assets/work-30-4.png', './assets/work-30-5.png'],
+    28: ['./assets/work-30.png', './assets/work-30-2.png', './assets/work-30-3.png', './assets/work-30-4.png', './assets/work-30-5.png'],
+    29: ['./assets/work-29.jpg', './assets/work-29-2.jpg', './assets/work-29-3.jpg'],
 };
 
 items.forEach((item, index) => {
