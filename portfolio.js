@@ -111,7 +111,8 @@ const mockups = {
     32: ['./assets/work-33.jpg', './assets/saffron.mp4', './assets/work-33-2.jpg', './assets/work-33-3.jpg', './assets/work-33-4.jpg'],
     33: ['./assets/work-34.jpg', './assets/work-34-2.jpg'],
     34: ['./assets/work-35.jpg'],
-    33: ['./assets/work-36.jpg', './assets/work-36-2.jpg'],
+    35: ['./assets/work-36.jpg', './assets/work-36-2.jpg'],
+    36: ['./assets/work-37.jpg', './assets/work-37-2.jpg'],
 };
 
 items.forEach((item, index) => {
