@@ -883,7 +883,7 @@
     </div>
 
     <!-- All JavaScript in One Place -->
-    <script>
+ <script>
         // Theme Toggle Logic (with localStorage persistence)
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
@@ -925,7 +925,7 @@
             });
         });
 
-        // P1 Mockups & Media System (0..36)
+        // P1 Mockups & Media System (0..37)
         const mockups = {
             0:  ['./assets/work-1.png'],
             1:  ['./assets/work-2.png'],
@@ -987,6 +987,21 @@
         function isVideo(src) {
             return /\.(mp4|webm|mov)$/i.test(src);
         }
+
+        // Add "Video" badge on top-left for cards containing video media
+        projectItems.forEach((item, index) => {
+            const fallbackImg = item.getAttribute('data-img');
+            const itemSlides = (mockups[index] && mockups[index].length)
+                ? mockups[index]
+                : (fallbackImg ? [fallbackImg] : []);
+
+            if (itemSlides.some(isVideo) && !item.querySelector('.video-badge')) {
+                const badge = document.createElement('div');
+                badge.className = 'video-badge pointer-events-none absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-950/75 text-white text-xs font-semibold backdrop-blur-md border border-white/15';
+                badge.innerHTML = '<i class="fa-solid fa-play text-[10px] text-sky-400"></i><span>Video</span>';
+                item.appendChild(badge);
+            }
+        });
 
         // Category Filter
         filterButtons.forEach(button => {
