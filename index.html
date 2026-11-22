@@ -52,6 +52,7 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 dark:text-slate-300">
+                <a href="#" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Home</a>
                 <a href="#about" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">About Me</a>
                 <a href="#skills" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Skills & Tools</a>
                 <a href="#portfolio" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Portfolio</a>
@@ -81,6 +82,7 @@
         <!-- Mobile Menu Drawer -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-6 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 backdrop-blur-md">
             <div class="flex flex-col gap-4 text-base font-medium">
+                <a href="#" class="mobile-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Home</a>
                 <a href="#about" class="mobile-link text-slate-700 dark:text-slate-200 hover:text-sky-500">About Me</a>
                 <a href="#skills" class="mobile-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Skills & Tools</a>
                 <a href="#portfolio" class="mobile-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Portfolio</a>
@@ -106,7 +108,7 @@
                     Senior Multidisciplinary Designer specializing in retail-ready packaging design, brand identity systems, and modern web design.
                 </p>
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                    <a href="#portfolio" class="px-7 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-medium shadow-lg shadow-sky-500/25 transition hover:scale-105 active:scale-95">
+                    <a href="portfolio.html" class="px-7 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-medium shadow-lg shadow-sky-500/25 transition hover:scale-105 active:scale-95">
                         Explore Portfolio <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                     </a>
                     <a href="#contact" class="px-7 py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 font-medium transition hover:scale-105 active:scale-95">
@@ -116,21 +118,21 @@
             </div>
 
             <!-- Stats / Quick Card -->
-            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+            <div id="stats-counter-grid" class="lg:col-span-5 grid grid-cols-2 gap-4">
                 <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none text-center">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1">14+</div>
+                    <div class="stat-counter text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1" data-target="14" data-suffix="+">0+</div>
                     <div class="text-sm font-medium text-slate-500 dark:text-slate-400">Years Experience</div>
                 </div>
                 <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none text-center">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1">600+</div>
+                    <div class="stat-counter text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1" data-target="600" data-suffix="+">0+</div>
                     <div class="text-sm font-medium text-slate-500 dark:text-slate-400">Happy Clients</div>
                 </div>
                 <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none text-center">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1">9+</div>
+                    <div class="stat-counter text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1" data-target="9" data-suffix="+">0+</div>
                     <div class="text-sm font-medium text-slate-500 dark:text-slate-400">Awards Won</div>
                 </div>
                 <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none text-center">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1">451+</div>
+                    <div class="stat-counter text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1" data-target="451" data-suffix="+">0+</div>
                     <div class="text-sm font-medium text-slate-500 dark:text-slate-400">Cups of Coffee</div>
                 </div>
             </div>
@@ -315,23 +317,6 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-item rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-xl shadow-slate-200/40 dark:shadow-none flex flex-col group transition hover:-translate-y-1.5" data-category="web">
-                    <div class="h-56 bg-gradient-to-tr from-emerald-400 to-teal-600 relative overflow-hidden flex items-center justify-center text-white">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
-                        <i class="fa-solid fa-camera-retro text-6xl text-white/80 group-hover:scale-110 transition duration-300"></i>
-                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/30 backdrop-blur-md text-xs font-medium text-white">Web Design</span>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h4 class="text-xl font-bold mb-2">Photography Showcase Site</h4>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-grow">Immersive visual portfolio platform highlighting high-resolution imagery with minimalist dark layouts.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <span class="text-xs font-medium text-sky-500">View Case Study</span>
-                            <span class="w-8 h-8 rounded-full bg-sky-500/10 text-sky-500 flex items-center justify-center group-hover:bg-sky-500 group-hover:text-white transition"><i class="fa-solid fa-arrow-right text-xs"></i></span>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Project 4 -->
                 <div class="project-item rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-xl shadow-slate-200/40 dark:shadow-none flex flex-col group transition hover:-translate-y-1.5" data-category="ui">
                     <div class="h-56 bg-gradient-to-tr from-amber-400 to-orange-600 relative overflow-hidden flex items-center justify-center text-white">
@@ -348,6 +333,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="portfolio.html" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-medium shadow-lg shadow-sky-500/25 transition hover:scale-105 active:scale-95">
+                    Explore Portfolio <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -515,6 +506,57 @@
                 });
             });
         });
+
+        // Animated Stats Counter
+        const statsGrid = document.getElementById('stats-counter-grid');
+        const statCounters = document.querySelectorAll('.stat-counter');
+        let countersStarted = false;
+
+        function animateCounters() {
+            if (countersStarted) return;
+            countersStarted = true;
+
+            const duration = 1800;
+            statCounters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'), 10);
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = Math.floor(easeOut * target);
+                    counter.textContent = currentVal + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + suffix;
+                    }
+                }
+
+                requestAnimationFrame(updateCounter);
+            });
+        }
+
+        if (statsGrid) {
+            const rect = statsGrid.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                animateCounters();
+            } else {
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            counterObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                counterObserver.observe(statsGrid);
+            }
+        }
     </script>
 </body>
 </html>
