@@ -1,516 +1,1155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio – Miraga Niftalizade</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio.css">
+    <title>Miraga Niftalizade — Senior Multidisciplinary Designer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f4f6f8',
+                            100: '#e9edf1',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-item {
+            animation: fadeIn 0.4s ease forwards;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
-    <!-- NAV -->
-    <nav id="navbar">
-        <a href="index.html" class="logo">
-            <img src="./assets/logo.png" alt="Logo" class="logo-light">
-            <img src="./assets/logo_dark.png" alt="Logo" class="logo-dark">
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html#top">Home</a></li>
-            <li><a href="index.html#about">About me</a></li>
-            <li><a href="portfolio.html" class="active">Portfolio</a></li>
-            <li><a href="index.html#contact">Contact me</a></li>
-        </ul>
-        <div class="nav-actions">
-          <button onclick="toggleTheme()" class="theme-btn">
-    <img src="./assets/moon_icon.png" alt="" class="moon" style="width:20px;">
-    <img src="./assets/sun_icon.png" alt="" class="sun" style="width:20px;">
-</button>
-            <a href="index.html#contact" class="contact-btn">Contact <span>→</span></a>
-            <button class="hamburger" onclick="openMenu()">
-                <span></span><span></span><span></span>
-            </button>
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-extrabold text-lg shadow-md shadow-sky-500/20">M</span>
+                <span>Miraga<span class="text-sky-500">.</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 dark:text-slate-300">
+                <a href="index.html" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Home</a>
+                <a href="#portfolio" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Portfolio</a>
+                <a href="#contact" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-4">
+                <!-- Dark/Light Toggle Button -->
+                <button id="theme-toggle" aria-label="Toggle Theme" class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center transition hover:scale-105 active:scale-95">
+                    <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
+                </button>
+
+                <!-- Hire Me / Contact CTA -->
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-medium text-sm shadow-lg shadow-sky-500/25 transition hover:scale-[1.02] active:scale-[0.98]">
+                    Let's Talk
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-slate-700 dark:text-slate-300 p-2 text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
-        <ul class="mobile-menu" id="mobileMenu">
-            <button class="close-menu" onclick="closeMenu()">✕</button>
-            <li><a href="index.html#top" onclick="closeMenu()">Home</a></li>
-            <li><a href="index.html#about" onclick="closeMenu()">About me</a></li>
-            <li><a href="portfolio.html" onclick="closeMenu()">Portfolio</a></li>
-            <li><a href="index.html#contact" onclick="closeMenu()">Contact me</a></li>
-        </ul>
-    </nav>
 
-    <!-- HERO -->
-    <section class="portfolio-hero">
-        <p class="section-label">My Work</p>
-        <h1>Portfolio</h1>
-        <p class="hero-sub">A curated collection of branding, packaging & digital design projects.</p>
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-6 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 backdrop-blur-md">
+            <div class="flex flex-col gap-4 text-base font-medium">
+                <a href="index.html" class="mobile-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Home</a>
+                <a href="#portfolio" class="mobile-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Portfolio</a>
+                <a href="#contact" class="mobile-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 md:pt-44 md:pb-32 px-6 relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="lg:col-span-7 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 text-sky-600 dark:text-sky-400 font-medium text-xs sm:text-sm mb-6 border border-sky-500/20">
+                    <i class="fa-solid fa-sparkles"></i> 14+ Years of Professional Excellence
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                    Hi, I'm <span class="bg-gradient-to-r from-sky-500 to-indigo-600 bg-clip-text text-transparent">Miraga Niftalizade</span>
+                </h1>
+                <p class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0">
+                    Senior Multidisciplinary Designer specializing in retail-ready packaging design, brand identity systems, and modern web design.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                    <a href="#portfolio" class="px-7 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-medium shadow-lg shadow-sky-500/25 transition hover:scale-105 active:scale-95">
+                        Explore Portfolio <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                    <a href="#contact" class="px-7 py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 font-medium transition hover:scale-105 active:scale-95">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats / Quick Card -->
+            <div id="stats-counter-grid" class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none text-center">
+                    <div class="stat-counter text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1" data-target="14" data-suffix="+">0+</div>
+                    <div class="text-sm font-medium text-slate-500 dark:text-slate-400">Years Experience</div>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none text-center">
+                    <div class="stat-counter text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1" data-target="600" data-suffix="+">0+</div>
+                    <div class="text-sm font-medium text-slate-500 dark:text-slate-400">Happy Clients</div>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none text-center">
+                    <div class="stat-counter text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1" data-target="9" data-suffix="+">0+</div>
+                    <div class="text-sm font-medium text-slate-500 dark:text-slate-400">Awards Won</div>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none text-center">
+                    <div class="stat-counter text-3xl sm:text-4xl font-extrabold text-sky-500 mb-1" data-target="451" data-suffix="+">0+</div>
+                    <div class="text-sm font-medium text-slate-500 dark:text-slate-400">Cups of Coffee</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- FILTER TABS -->
-    <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="branding">Branding</button>
-        <button class="filter-btn" data-filter="packaging">Packaging</button>
-        <button class="filter-btn" data-filter="uiux">UI/UX</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="Print">Print</button>
-    </div>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-6 bg-slate-100/50 dark:bg-slate-900/50 border-y border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs uppercase tracking-widest text-sky-500 font-bold mb-3">Portfolio</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Selected Works</h3>
+                <p class="text-slate-600 dark:text-slate-400">A curated collection of branding, packaging & digital design projects.</p>
+            </div>
 
-    <!-- GRID -->
-    <main class="portfolio-grid" id="portfolioGrid">
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                <button class="filter-btn active px-5 py-2.5 rounded-full font-medium text-sm bg-sky-500 text-white shadow-md shadow-sky-500/25 transition" data-filter="all">All</button>
+                <button class="filter-btn px-5 py-2.5 rounded-full font-medium text-sm bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" data-filter="branding">Branding</button>
+                <button class="filter-btn px-5 py-2.5 rounded-full font-medium text-sm bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" data-filter="packaging">Packaging</button>
+                <button class="filter-btn px-5 py-2.5 rounded-full font-medium text-sm bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" data-filter="uiux">UI/UX</button>
+                <button class="filter-btn px-5 py-2.5 rounded-full font-medium text-sm bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" data-filter="web">Web</button>
+                <button class="filter-btn px-5 py-2.5 rounded-full font-medium text-sm bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" data-filter="Print">Print</button>
+            </div>
 
-        <!-- 0: GameKings -->
-        <div class="portfolio-item" data-category="branding" data-title="GameKings Logo Design" data-desc="GameKings is a modern gaming brand identity built around the concept of leadership and competitive strength. The crown symbol represents dominance and authority in the gaming world, while the integrated controller elements highlight the brand's digital focus. The bold red color conveys energy, passion, and intensity, creating a powerful and memorable visual presence.">
-            <div class="item-img" style="background-image: url('./assets/work-1.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>GameKings Logo Design</h3>
-                <span class="view-btn">View →</span>
+            <!-- Projects Grid (P1'deki 37 proje sırasıyla) -->
+            <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- 0: GameKings -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="GameKings Logo Design"
+                     data-desc="GameKings is a modern gaming brand identity built around the concept of leadership and competitive strength. The crown symbol represents dominance and authority in the gaming world, while the integrated controller elements highlight the brand's digital focus. The bold red color conveys energy, passion, and intensity, creating a powerful and memorable visual presence."
+                     data-img="./assets/work-1.png">
+                    <img src="./assets/work-1.png" alt="GameKings Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">GameKings Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1: Halcyon Watches -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Halcyon Watches Logo Design"
+                     data-desc="Halcyon Watches is a handcrafted wooden watch brand identity inspired by natural textures and timeless craftsmanship. The circular badge form reflects precision and tradition, while the tree-ring detail at the center symbolizes growth, sustainability, and the organic essence of wood. The monochrome palette enhances the vintage aesthetic, creating a strong, authentic, and heritage-driven visual identity."
+                     data-img="./assets/work-2.png">
+                    <img src="./assets/work-2.png" alt="Halcyon Watches Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Halcyon Watches Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2: John Lowry Photography -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="John Lowry Photography Logo Design"
+                     data-desc="The icon is created by combining the initials J and L into a clean, geometric monogram that subtly forms a camera shape. The circular element represents the camera lens, reinforcing the photography concept while maintaining a minimal and modern aesthetic. The structured lines and balanced composition reflect precision, professionalism, and visual clarity."
+                     data-img="./assets/work-3.png">
+                    <img src="./assets/work-3.png" alt="John Lowry Photography Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">John Lowry Photography Logo</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3: Global Energy Construction -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Global Energy Construction logo design"
+                     data-desc="A modern logo designed for Global Energy Construction, combining fluid shapes to represent global connectivity, energy flow, and structural strength. The blue and orange color palette reflects reliability, innovation, and sustainable energy solutions."
+                     data-img="./assets/work-15.png">
+                    <img src="./assets/work-15.png" alt="Global Energy Construction Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Global Energy Construction Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4: TruPoint -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="TruPoint Knife Sharpener – Packaging Design"
+                     data-desc="A bold and functional packaging design created to emphasize performance, durability, and ease of use. The clean layout combines strong typography with green accents to highlight key product features such as the 3-stage sharpening system. Clear visual hierarchy and product-focused imagery ensure strong shelf impact and effective communication in retail environments."
+                     data-img="./assets/work-5.png">
+                    <img src="./assets/work-5.png" alt="TruPoint Knife Sharpener – Packaging Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">TruPoint Knife Sharpener – Packaging Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5: Makolli -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Makolli Melt Butter Biscuits – Packaging Design"
+                     data-desc="A warm and appetizing packaging design created to highlight the rich, buttery flavor of the product. The golden tones and splash-of-milk visual emphasize freshness and indulgence, while bold typography ensures strong shelf visibility. The overall layout balances premium perception with mass-market appeal, delivering a clean and impactful retail presence."
+                     data-img="./assets/work-6.png">
+                    <img src="./assets/work-6.png" alt="Makolli Melt Butter Biscuits – Packaging Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Makolli Melt Butter Biscuits – Packaging Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6: Seafood -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="The Seafood Company – Logo Design"
+                     data-desc="A clean and modern logo design combining a house-shaped outline with a fish symbol to represent freshness and trusted sourcing. The geometric structure reflects reliability and professionalism, while the blue color palette communicates quality, purity, and a strong connection to the sea. The result is a simple yet memorable identity suitable for a contemporary seafood brand."
+                     data-img="./assets/work-7.png">
+                    <img src="./assets/work-7.png" alt="The Seafood Company – Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">The Seafood Company – Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7: Data Wave -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Data Wave – Logo Design"
+                     data-desc="A modern technology-focused logo that visualizes data flow through a dynamic wave form. The orange waveform symbolizes connectivity, movement, and continuous digital transmission, while the motion-inspired typography reinforces speed and innovation. The clean contrast between gray and orange creates a strong, contemporary identity suitable for a data-driven brand."
+                     data-img="./assets/work-8.png">
+                    <img src="./assets/work-8.png" alt="Data Wave – Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Data Wave – Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8: Thrills -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="uiux"
+                     data-title="Thrills – Social Event App Logo Design"
+                     data-desc="Thrills is a social media app that connects people through real-life experiences, from festivals to casual meetups. The minimal icon subtly forms a smile, representing connection and shared excitement. The vibrant blue palette and clean typography create a modern, energetic identity tailored to a young, experience-driven audience."
+                     data-img="./assets/work-9.png">
+                    <img src="./assets/work-9.png" alt="Thrills – Social Event App Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">UI/UX</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Thrills – Social Event App Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9: Be Right Burger -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Be Right Burger – Logo Design"
+                     data-desc="I redesigned the initials BRB (Be Right Burger) into a burger-inspired icon system, using red to represent meat and bold flavor, yellow for the bun, and green to reflect freshness and quality. The result is a simple yet memorable visual identity that connects directly to the brand's core product, supported by a presentation video I edited to showcase the logo reveal and overall concept."
+                     data-img="./assets/work-10.png">
+                    <img src="./assets/work-10.png" alt="Be Right Burger – Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Be Right Burger – Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10: Migliori -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Migliori Seafood Logo Design"
+                     data-desc="A vintage-style logo for Migliori Seafoods, inspired by classic seafood branding and maritime heritage. The design combines bold typography and nautical elements to convey tradition, quality, and premium seafood products."
+                     data-img="./assets/work-17.png">
+                    <img src="./assets/work-17.png" alt="Migliori Seafood Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Migliori Seafood Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11: Globtag -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="web"
+                     data-title="Globtag eSIM Website"
+                     data-desc="A modern, responsive website developed for Globtag to present its eSIM services. Built with a clean UI and user-focused approach, ensuring seamless performance across all devices."
+                     data-img="./assets/work-12.png">
+                    <img src="./assets/work-12.png" alt="Globtag eSIM Website" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">WEB</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Globtag eSIM Website</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12: Boost Studios -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Boost Studios Logo Design"
+                     data-desc="This logo was designed for BOOST Studios to represent a strong and modern brand identity. The bold typography and minimal design emphasize the studio's dynamic, innovative, and professional character."
+                     data-img="./assets/work-13.jpg">
+                    <img src="./assets/work-13.jpg" alt="Boost Studios Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Boost Studios</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13: Oisix Label -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Oisix Natural Juice Label Design"
+                     data-desc="Label design for Oisix, a brand producing natural fruit and vegetable juices. Clean, modern typography and color-coded labels highlight different flavors like Green, Pineapple, Carrot, and Beet."
+                     data-img="./assets/work-14.png">
+                    <img src="./assets/work-14.png" alt="Oisix Natural Juice Label Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Oisix Natural Juice Label Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14: Whole Soybean Salad -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Whole Soybean Salad – Packaging Design"
+                     data-desc="A clean, modern packaging design focused on freshness and natural ingredients. The bold green panel and earthy tones reflect health and sustainability, while the transparent window highlights product quality. The minimal typography and icon system clearly communicate key benefits in a strong retail-ready presentation."
+                     data-img="./assets/work-4.png">
+                    <img src="./assets/work-4.png" alt="Whole Soybean Salad – Packaging Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Whole Soybean Salad – Packaging Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15: Intex Energy -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Intex Eenergy Logo Design"
+                     data-desc="A bold and modern logo for INTEX Energy, featuring a lightning-inspired letterform that symbolizes power, innovation, and dynamic energy solutions. The strong typography and vibrant gradient emphasize strength and technological advancement.⚡"
+                     data-img="./assets/work-16.png">
+                    <img src="./assets/work-16.png" alt="Intex Eenergy Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Intex Eenergy Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 16: Berry Company -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="The Berry Company | Fruit Juice Packaging Design"
+                     data-desc="I designed carton and can packaging for The Berry Company, using a clean, modern style that highlights freshness and flavor through bold color palettes and minimal line illustrations for a premium shelf presence."
+                     data-img="./assets/work-11.png">
+                    <img src="./assets/work-11.png" alt="The Berry Company | Fruit Juice Packaging Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">The Berry Company | Fruit Juice Packaging Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 17: Kudos -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="uiux"
+                     data-title="Kudos Logo and App icon Design"
+                     data-desc="A clean and modern logo for PUDOS Delivery, featuring a minimal shopping cart icon that represents speed, convenience, and reliable delivery services. The vibrant purple and yellow colors add a friendly and energetic brand feel."
+                     data-img="./assets/work-18.png">
+                    <img src="./assets/work-18.png" alt="Kudos Logo and App icon Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">UI/UX</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Kudos Logo and App icon Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 18: Dewe -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Elegant Packaging Design for Dewé Overnight Wrapping Mask"
+                     data-desc="A modern packaging design for Dewé Overnight Wrapping Mask, featuring a clean minimal layout and elegant line-art illustration to reflect skincare purity and sophistication. The warm orange palette conveys hydration, renewal, and nighttime skin care."
+                     data-img="./assets/work-19.png">
+                    <img src="./assets/work-19.png" alt="Elegant Packaging Design for Dewé Overnight Wrapping Mask" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Elegant Packaging Design for Dewé Overnight Wrapping Mask</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 19: Kohicha -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Kohicha Premium Coffee Packaging Design"
+                     data-desc="A bold and modern packaging design for Kohiicha Premium Coffee, combining strong color contrast with elegant vintage-style typography to highlight quality and authenticity."
+                     data-img="./assets/work-20.png">
+                    <img src="./assets/work-20.png" alt="Kohicha Premium Coffee Packaging Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Kohicha Premium Coffee Packaging Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 20: Mascarin -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Mascarin Chocolate bar packaging design"
+                     data-desc="Premium chocolate packaging design created for a filled dark chocolate product. The concept combines rich chocolate tones with tropical lychee visuals to highlight the flavor and create strong shelf appeal. The layout focuses on clear hierarchy, modern typography, and appetizing product imagery. Designed to attract attention in retail environments while maintaining a premium and elegant brand feel."
+                     data-img="./assets/work-21.png">
+                    <img src="./assets/work-21.png" alt="Mascarin Chocolate bar packaging design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Mascarin Chocolate bar packaging design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 21: Sardine -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Sardine can label design"
+                     data-desc="This sardine tin packaging was designed to create strong shelf impact with a clean and modern look. The brief required using only two colors, which I used strategically with a deep blue and vibrant orange to achieve high contrast and visibility. Illustrated fish elements add movement and uniqueness, while the typography reinforces a bold and recognizable brand presence both on shelf and online."
+                     data-img="./assets/work-22.png">
+                    <img src="./assets/work-22.png" alt="Sardine can label design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Sardine can label design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 22: Kind Juice -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Kind Juice – Label Design"
+                     data-desc="I designed a clean, modern label for Kind Juice that captures their tropical, nature-inspired identity while highlighting their all-natural positioning. Using earthy greens, warm tones, and subtle textures, the design keeps the flavor and key details clear while maintaining a relaxed Key West vibe."
+                     data-img="./assets/work-23.png">
+                    <img src="./assets/work-23.png" alt="Kind Juice – Label Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Kind Juice – Label Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 23: Fishery Systems Science -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Fishery Systems Science Lab – Logo Design"
+                     data-desc="A modern, minimal logo combining fish and DNA elements to reflect the lab’s focus on science, research, and aquatic systems. The clean lines and balanced typography create a professional and academic visual identity."
+                     data-img="./assets/work-24.png">
+                    <img src="./assets/work-24.png" alt="Fishery Systems Science Lab – Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Fishery Systems Science Lab – Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 24: Whey protein -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Grand Nutrition Whey Protein Label Design"
+                     data-desc="A bold and modern whey protein packaging design focused on strong shelf visibility. Clean typography and high-contrast colors were used to highlight key product information and create a dynamic, energetic look that stands out both in-store and online."
+                     data-img="./assets/work-25.png">
+                    <img src="./assets/work-25.png" alt="Grand Nutrition Whey Protein Label Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Grand Nutrition Whey Protein Label Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 25: Lavazza -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="Print"
+                     data-title="Lavazza Coffee Machines Catalog Design"
+                     data-desc="This catalog design for Lavazza highlights the brand’s premium and modern identity. The layout presents coffee machines in a clean and structured way, combining clear typography with strong visual hierarchy. Using a minimal design approach and brand-consistent colors, the catalog delivers both an elegant look and an intuitive user experience."
+                     data-img="./assets/work-26.png">
+                    <img src="./assets/work-26.png" alt="Lavazza Coffee Machines Catalog Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PRINT</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Lavazza Coffee Machines Catalog Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 26: Linkbook -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Linkbook Logo + Brand Guideline Design"
+                     data-desc="Linkbook is a modern and clean brand identity design created for a link-in-bio platform. The logo combines the initials L and B with a plus symbol, representing connection, accessibility, and growth. The vibrant green and deep purple color palette reflects energy, trust, and creativity. This project delivers a minimal yet impactful visual system, ensuring a professional and user-friendly brand presence across digital platforms."
+                     data-img="./assets/work-27.jpg">
+                    <img src="./assets/work-27.jpg" alt="Linkbook Logo + Brand Guideline Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Linkbook Logo + Brand Guideline Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 27: Rallio -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Rallio CRM Logo + Brand Guideline"
+                     data-desc="Rallio is a modern and innovative brand identity project designed for a project management platform. The logo, color palette, and typography reflect a balance between creativity and structure. The combination of circle and triangle forms symbolizes unity, direction, and progress in workflows. This project delivers a strong visual identity that highlights the brand’s professional and forward-thinking nature."
+                     data-img="./assets/work-28.jpg">
+                    <img src="./assets/work-28.jpg" alt="Rallio CRM Logo + Brand Guideline" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Rallio CRM Logo + Brand Guideline</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 28: Law Firm -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="web"
+                     data-title="Homepage Design for Criminal Defense Law Firm"
+                     data-desc="A modern, high-converting website design for a criminal defense law firm, focused on trust, authority, and immediate action. The layout combines bold messaging, strong visual hierarchy, and clear call-to-actions to guide users seamlessly from first impression to consultation. Built to emphasize credibility, client success, and accessibility, it delivers a professional and results-driven user experience."
+                     data-img="./assets/work-30.png">
+                    <img src="./assets/work-30.png" alt="Homepage Design for Criminal Defense Law Firm" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">WEB</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Homepage Design for Criminal Defense Law Firm</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 29: Citymed -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Logo and Minivan Design for the Wholesale Pharmaceutical company"
+                     data-desc="I designed a modern and clean logo for CityMedRx that reflects a trustworthy and professional identity. I also applied the design to a branded minivan wrap to enhance visibility and create a cohesive look for the company’s distribution operations."
+                     data-img="./assets/work-29.jpg">
+                    <img src="./assets/work-29.jpg" alt="Logo and Minivan Design for the Wholesale Pharmaceutical company" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Logo and Minivan Design for the Wholesale Pharmaceutical company</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 30: Westcreek -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="branding"
+                     data-title="Westcreek Medical Spa – Logo Design"
+                     data-desc="This logo combines the letter “W” with a human figure inspired by the lotus yoga pose, symbolizing balance, wellness, and relaxation. The clean, minimal lines create a modern and professional look suitable for a medical spa. Teal blue conveys trust and calmness, while lime green represents freshness and renewal. The overall design reflects a harmony between medical expertise and holistic care, delivering a serene and rejuvenating brand identity."
+                     data-img="./assets/work-31.png">
+                    <img src="./assets/work-31.png" alt="Westcreek Medical Spa – Logo Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">BRANDING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Westcreek Medical Spa – Logo Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 31: Sothys -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="Print"
+                     data-title="Sothys Paris Beauty Catalog Design"
+                     data-desc="This catalog design for Sothys Paris reflects elegance and luxury through soft visuals and refined composition. The layout combines beauty and wellness imagery with delicate patterns and gold accents, creating a sophisticated and calming aesthetic. Clean typography and balanced sections enhance readability while maintaining a premium brand feel."
+                     data-img="./assets/work-32.jpg">
+                    <img src="./assets/work-32.jpg" alt="Sothys Paris Beauty Catalog Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PRINT</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Sothys Paris Beauty Catalog Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 32: Saffron -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Premium saffron packaging design"
+                     data-desc="This premium saffron packaging design presents an elegant and sophisticated visual identity. The soft cream tones combined with delicate gold accents and purple floral motifs highlight the product’s value and natural essence. Supported by minimal yet refined typography, the design aims to position the brand within the luxury segment. It offers both aesthetic appeal and strong shelf presence."
+                     data-img="./assets/work-33.jpg">
+                    <img src="./assets/work-33.jpg" alt="Premium saffron packaging design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Premium saffron packaging design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 33: Duronex Foam -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Insulation Foam Spray Can Design for E-commerce"
+                     data-desc="High-impact packaging design for insulation spray foam. Focused on readability, branding consistency, and strong visual appeal to increase product visibility."
+                     data-img="./assets/work-34.jpg">
+                    <img src="./assets/work-34.jpg" alt="Insulation Foam Spray Can Design for E-commerce" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Insulation Foam Spray Can Design for E-commerce</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 34: Coffee Doypack -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Coffee Doypack Packaging Design"
+                     data-desc="I design clean, modern coffee doypack packaging that stands out on the shelf, using strong typography, a premium look, and clear product communication—perfect for coffee brands seeking simple, effective design with ready-to-print, high-quality files."
+                     data-img="./assets/work-35.jpg">
+                    <img src="./assets/work-35.jpg" alt="Coffee Doypack Packaging Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">Coffee Doypack Packaging Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 35: COQ10 Gummies -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="COQ10 Gummies"
+                     data-desc="E-commerce product visual and packaging presentation for Nature’s Choice."
+                     data-img="./assets/work-36.jpg">
+                    <img src="./assets/work-36.jpg" alt="COQ10 Gummies Packaging Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">COQ10 Gummies Packaging Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 36: Bio Vitamins -->
+                <div class="project-item group relative aspect-square rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg shadow-slate-200/40 dark:shadow-none cursor-pointer"
+                     data-category="packaging"
+                     data-title="Bio Vitamins"
+                     data-desc="A minimalist and luxurious portfolio-ready design concept centered around warm golden and amber tones to elevate the product's premium positioning and visual hierarchy."
+                     data-img="./assets/work-37.jpg">
+                    <img src="./assets/work-37.jpg" alt="Bio Vitamins Label Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">PACKAGING</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-white">"Bio Vitamins Label Design</h4>
+                            <span class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-expand text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </section>
 
-        <!-- 1: Halcyon Watches -->
-        <div class="portfolio-item" data-category="branding" data-title="Halcyon Watches Logo Design" data-desc="Halcyon Watches is a handcrafted wooden watch brand identity inspired by natural textures and timeless craftsmanship. The circular badge form reflects precision and tradition, while the tree-ring detail at the center symbolizes growth, sustainability, and the organic essence of wood. The monochrome palette enhances the vintage aesthetic, creating a strong, authentic, and heritage-driven visual identity.">
-            <div class="item-img" style="background-image: url('./assets/work-2.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Halcyon Watches Logo Design</h3>
-                <span class="view-btn">View →</span>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-slate-100/50 dark:bg-slate-900/50 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-sky-500 font-bold mb-3">Get in Touch</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Let's Work Together</h3>
+                <p class="text-slate-600 dark:text-slate-400">I'd love to hear from you! If you have any questions, comments, or project inquiries, please reach out.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto">
+                <div class="lg:col-span-5 flex flex-col justify-between gap-8">
+                    <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/30 dark:shadow-none">
+                        <h4 class="text-xl font-bold mb-6">Contact Info</h4>
+                        <div class="flex flex-col gap-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-500 flex items-center justify-center text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Email Me</div>
+                                    <a href="mailto:miraga019@gmail.com" class="font-bold text-slate-800 dark:text-slate-200 hover:text-sky-500 transition">miraga019@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-500 flex items-center justify-center text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Location</div>
+                                    <div class="font-bold text-slate-800 dark:text-slate-200">Istanbul, Turkey</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for your message! I will get back to you soon.');" class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/30 dark:shadow-none flex flex-col gap-6">
+                        <input type="hidden" name="subject" value="Miraga Nift - New form Submission">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Your Name</label>
+                            <input type="text" name="name" required placeholder="Enter your name" class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-sky-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Your Email</label>
+                            <input type="email" name="email" required placeholder="Enter your email" class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-sky-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Your Message</label>
+                            <textarea name="message" rows="4" required placeholder="Enter your message" class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-sky-500 transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-medium shadow-lg shadow-sky-500/25 transition hover:scale-[1.01] active:scale-[0.99]">
+                            Submit Now
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-
-        <!-- 2: John Lowry Photography -->
-        <div class="portfolio-item" data-category="branding" data-title="John Lowry Photography Logo Design" data-desc="The icon is created by combining the initials J and L into a clean, geometric monogram that subtly forms a camera shape. The circular element represents the camera lens, reinforcing the photography concept while maintaining a minimal and modern aesthetic. The structured lines and balanced composition reflect precision, professionalism, and visual clarity.">
-            <div class="item-img" style="background-image: url('./assets/work-3.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>John Lowry Photography Logo</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-  <!-- Global Energy -->
-        <div class="portfolio-item" data-category="branding" data-title="Global Energy Construction logo design" data-desc="A modern logo designed for Global Energy Construction, combining fluid shapes to represent global connectivity, energy flow, and structural strength. The blue and orange color palette reflects reliability, innovation, and sustainable energy solutions.">
-            <div class="item-img" style="background-image: url('./assets/work-15.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Global Energy Construction Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-        <!-- 4: TruPoint -->
-        <div class="portfolio-item" data-category="packaging" data-title="TruPoint Knife Sharpener – Packaging Design" data-desc="A bold and functional packaging design created to emphasize performance, durability, and ease of use. The clean layout combines strong typography with green accents to highlight key product features such as the 3-stage sharpening system. Clear visual hierarchy and product-focused imagery ensure strong shelf impact and effective communication in retail environments.">
-            <div class="item-img" style="background-image: url('./assets/work-5.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>TruPoint Knife Sharpener – Packaging Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-        <!-- 5: Makolli -->
-        <div class="portfolio-item" data-category="packaging" data-title="Makolli Melt Butter Biscuits – Packaging Design" data-desc="A warm and appetizing packaging design created to highlight the rich, buttery flavor of the product. The golden tones and splash-of-milk visual emphasize freshness and indulgence, while bold typography ensures strong shelf visibility. The overall layout balances premium perception with mass-market appeal, delivering a clean and impactful retail presence.">
-            <div class="item-img" style="background-image: url('./assets/work-6.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Makolli Melt Butter Biscuits – Packaging Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-        <!-- 6: Seafood -->
-        <div class="portfolio-item" data-category="branding" data-title="The Seafood Company – Logo Design" data-desc="A clean and modern logo design combining a house-shaped outline with a fish symbol to represent freshness and trusted sourcing. The geometric structure reflects reliability and professionalism, while the blue color palette communicates quality, purity, and a strong connection to the sea. The result is a simple yet memorable identity suitable for a contemporary seafood brand.">
-            <div class="item-img" style="background-image: url('./assets/work-7.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>The Seafood Company – Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-        <!-- 7: Data Wave -->
-        <div class="portfolio-item" data-category="branding" data-title="Data Wave – Logo Design" data-desc="A modern technology-focused logo that visualizes data flow through a dynamic wave form. The orange waveform symbolizes connectivity, movement, and continuous digital transmission, while the motion-inspired typography reinforces speed and innovation. The clean contrast between gray and orange creates a strong, contemporary identity suitable for a data-driven brand.">
-            <div class="item-img" style="background-image: url('./assets/work-8.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Data Wave – Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-        <!-- 8: Thrills -->
-        <div class="portfolio-item" data-category="uiux" data-title="Thrills – Social Event App Logo Design" data-desc="Thrills is a social media app that connects people through real-life experiences, from festivals to casual meetups. The minimal icon subtly forms a smile, representing connection and shared excitement. The vibrant blue palette and clean typography create a modern, energetic identity tailored to a young, experience-driven audience.">
-            <div class="item-img" style="background-image: url('./assets/work-9.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">UI/UX</span>
-                <h3>Thrills – Social Event App Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-        <!-- 9: Be Right Burger -->
-        <div class="portfolio-item" data-category="branding" data-title="Be Right Burger – Logo Design" data-desc="I redesigned the initials BRB (Be Right Burger) into a burger-inspired icon system, using red to represent meat and bold flavor, yellow for the bun, and green to reflect freshness and quality. The result is a simple yet memorable visual identity that connects directly to the brand's core product, supported by a presentation video I edited to showcase the logo reveal and overall concept.">
-            <div class="item-img" style="background-image: url('./assets/work-10.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Be Right Burger – Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-          <!-- 15: Migliori -->
-        <div class="portfolio-item" data-category="branding" data-title="Migliori Seafood Logo Design" data-desc="A vintage-style logo for Migliori Seafoods, inspired by classic seafood branding and maritime heritage. The design combines bold typography and nautical elements to convey tradition, quality, and premium seafood products.">
-            <div class="item-img" style="background-image: url('./assets/work-17.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Migliori Seafood Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-      
-
-        <!-- 11: Globtag -->
-        <div class="portfolio-item" data-category="web" data-title="Globtag eSIM Website" data-desc="A modern, responsive website developed for Globtag to present its eSIM services. Built with a clean UI and user-focused approach, ensuring seamless performance across all devices.">
-            <div class="item-img" style="background-image: url('./assets/work-12.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Web</span>
-                <h3>Globtag eSIM Website</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-        <!-- 12: Boost Studios -->
-        <div class="portfolio-item" data-category="branding" data-title="Boost Studios Logo Design" data-desc="This logo was designed for BOOST Studios to represent a strong and modern brand identity. The bold typography and minimal design emphasize the studio's dynamic, innovative, and professional character.">
-            <div class="item-img" style="background-image: url('./assets/work-13.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Boost Studios</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-        <!-- 13: Oisix Label -->
-        <div class="portfolio-item" data-category="packaging" data-title="Oisix Natural Juice Label Design" data-desc="Label design for Oisix, a brand producing natural fruit and vegetable juices. Clean, modern typography and color-coded labels highlight different flavors like Green, Pineapple, Carrot, and Beet.">
-            <div class="item-img" style="background-image: url('./assets/work-14.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Oisix Natural Juice Label Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-              <!-- 3: Whole Soybean Salad -->
-        <div class="portfolio-item" data-category="packaging" data-title="Whole Soybean Salad – Packaging Design" data-desc="A clean, modern packaging design focused on freshness and natural ingredients. The bold green panel and earthy tones reflect health and sustainability, while the transparent window highlights product quality. The minimal typography and icon system clearly communicate key benefits in a strong retail-ready presentation.">
-            <div class="item-img" style="background-image: url('./assets/work-4.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Whole Soybean Salad – Packaging Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-  <!-- 13: Intex Energy -->
-        <div class="portfolio-item" data-category="branding" data-title="Intex Eenergy Logo Design" data-desc="A bold and modern logo for INTEX Energy, featuring a lightning-inspired letterform that symbolizes power, innovation, and dynamic energy solutions. The strong typography and vibrant gradient emphasize strength and technological advancement.⚡">
-            <div class="item-img" style="background-image: url('./assets/work-16.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Intex Eenergy Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-          <!-- 10: Berry Company -->
-        <div class="portfolio-item" data-category="packaging" data-title="The Berry Company | Fruit Juice Packaging Design" data-desc="I designed carton and can packaging for The Berry Company, using a clean, modern style that highlights freshness and flavor through bold color palettes and minimal line illustrations for a premium shelf presence.">
-            <div class="item-img" style="background-image: url('./assets/work-11.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>The Berry Company | Fruit Juice Packaging Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-             <!-- 10: Pudos -->
-        <div class="portfolio-item" data-category="uiux" data-title="Kudos Logo and App icon Design" data-desc="A clean and modern logo for PUDOS Delivery, featuring a minimal shopping cart icon that represents speed, convenience, and reliable delivery services. The vibrant purple and yellow colors add a friendly and energetic brand feel.">
-            <div class="item-img" style="background-image: url('./assets/work-18.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">UI/UX</span>
-                <h3>Kudos Logo and App icon Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-              <!-- 10: dewe -->
-        <div class="portfolio-item" data-category="packaging" data-title="Elegant Packaging Design for Dewé Overnight Wrapping Mask" data-desc="A modern packaging design for Dewé Overnight Wrapping Mask, featuring a clean minimal layout and elegant line-art illustration to reflect skincare purity and sophistication. The warm orange palette conveys hydration, renewal, and nighttime skin care.">
-            <div class="item-img" style="background-image: url('./assets/work-19.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Elegant Packaging Design for Dewé Overnight Wrapping Mask</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-               <!-- 10: kohicha -->
-        <div class="portfolio-item" data-category="packaging" data-title="Kohicha Premium Coffee Packaging Design" data-desc="A bold and modern packaging design for Kohiicha Premium Coffee, combining strong color contrast with elegant vintage-style typography to highlight quality and authenticity.">
-            <div class="item-img" style="background-image: url('./assets/work-20.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Kohicha Premium Coffee Packaging Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-                 <!-- 10: kohicha -->
-        <div class="portfolio-item" data-category="packaging" data-title="Mascarin Chocolate bar packaging design" data-desc="Premium chocolate packaging design created for a filled dark chocolate product. The concept combines rich chocolate tones with tropical lychee visuals to highlight the flavor and create strong shelf appeal. The layout focuses on clear hierarchy, modern typography, and appetizing product imagery. Designed to attract attention in retail environments while maintaining a premium and elegant brand feel.">
-            <div class="item-img" style="background-image: url('./assets/work-21.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Mascarin Chocolate bar packaging design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-                    <!-- 10: sardine -->
-        <div class="portfolio-item" data-category="packaging" data-title="Sardine can label design" data-desc="This sardine tin packaging was designed to create strong shelf impact with a clean and modern look. The brief required using only two colors, which I used strategically with a deep blue and vibrant orange to achieve high contrast and visibility. Illustrated fish elements add movement and uniqueness, while the typography reinforces a bold and recognizable brand presence both on shelf and online.">
-            <div class="item-img" style="background-image: url('./assets/work-22.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Sardine can label design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-        
-                    <!-- 10: Kind Juice – Label Design -->
-        <div class="portfolio-item" data-category="packaging" data-title="Kind Juice – Label Design" data-desc="I designed a clean, modern label for Kind Juice that captures their tropical, nature-inspired identity while highlighting their all-natural positioning. Using earthy greens, warm tones, and subtle textures, the design keeps the flavor and key details clear while maintaining a relaxed Key West vibe.">
-            <div class="item-img" style="background-image: url('./assets/work-23.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Kind Juice – Label Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-                  <!-- 10:Fishery Systems Science  -->
-        <div class="portfolio-item" data-category="branding" data-title="Fishery Systems Science Lab – Logo Design" data-desc="A modern, minimal logo combining fish and DNA elements to reflect the lab’s focus on science, research, and aquatic systems. The clean lines and balanced typography create a professional and academic visual identity.">
-            <div class="item-img" style="background-image: url('./assets/work-24.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Fishery Systems Science Lab – Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-               <!-- 10: Whey protein -->
-        <div class="portfolio-item" data-category="packaging" data-title="Grand Nutrition Whey Protein Label Design" data-desc="A bold and modern whey protein packaging design focused on strong shelf visibility. Clean typography and high-contrast colors were used to highlight key product information and create a dynamic, energetic look that stands out both in-store and online.">
-            <div class="item-img" style="background-image: url('./assets/work-25.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Grand Nutrition Whey Protein Label Design</h3>
-                <span class="view-btn">View →</span> 
-            </div>
-        </div>
-
-                  <!-- 25: lavazza -->
-        <div class="portfolio-item" data-category="Print" data-title="Lavazza Coffee Machines Catalog Design" data-desc="This catalog design for Lavazza highlights the brand’s premium and modern identity. The layout presents coffee machines in a clean and structured way, combining clear typography with strong visual hierarchy. Using a minimal design approach and brand-consistent colors, the catalog delivers both an elegant look and an intuitive user experience.">
-            <div class="item-img" style="background-image: url('./assets/work-26.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Print</span>
-                <h3>Lavazza Coffee Machines Catalog Design</h3>
-                <span class="view-btn">View →</span> 
-            </div>
-        </div>
-
-
-                   <!-- 10: Linkbook  -->
-        <div class="portfolio-item" data-category="branding" data-title="Linkbook Logo + Brand Guideline Design" data-desc="Linkbook is a modern and clean brand identity design created for a link-in-bio platform. The logo combines the initials L and B with a plus symbol, representing connection, accessibility, and growth. The vibrant green and deep purple color palette reflects energy, trust, and creativity. This project delivers a minimal yet impactful visual system, ensuring a professional and user-friendly brand presence across digital platforms.">
-            <div class="item-img" style="background-image: url('./assets/work-27.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Linkbook Logo + Brand Guideline Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-                   <!-- 10: Rallio  -->
-        <div class="portfolio-item" data-category="branding" data-title="Rallio CRM Logo + Brand Guideline" data-desc="Rallio is a modern and innovative brand identity project designed for a project management platform. The logo, color palette, and typography reflect a balance between creativity and structure. The combination of circle and triangle forms symbolizes unity, direction, and progress in workflows. This project delivers a strong visual identity that highlights the brand’s professional and forward-thinking nature.">
-            <div class="item-img" style="background-image: url('./assets/work-28.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Rallio CRM Logo + Brand Guideline</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-                     <!-- 30: Law Firm  -->
-        <div class="portfolio-item" data-category="web" data-title="Homepage Design for Criminal Defense Law Firm" data-desc="A modern, high-converting website design for a criminal defense law firm, focused on trust, authority, and immediate action. The layout combines bold messaging, strong visual hierarchy, and clear call-to-actions to guide users seamlessly from first impression to consultation. Built to emphasize credibility, client success, and accessibility, it delivers a professional and results-driven user experience.">
-            <div class="item-img" style="background-image: url('./assets/work-30.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Web</span>
-                <h3>Homepage Design for Criminal Defense Law Firm</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-                      <!-- 30: Citymed  -->
-        <div class="portfolio-item" data-category="branding" data-title="Logo and Minivan Design for the Wholesale Pharmaceutical company" data-desc="I designed a modern and clean logo for CityMedRx that reflects a trustworthy and professional identity. I also applied the design to a branded minivan wrap to enhance visibility and create a cohesive look for the company’s distribution operations.">
-            <div class="item-img" style="background-image: url('./assets/work-29.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Logo and Minivan Design for the Wholesale Pharmaceutical company</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-                   <!-- 31: Westcreek  -->
-        <div class="portfolio-item" data-category="branding" data-title="Westcreek Medical Spa – Logo Design" data-desc="This logo combines the letter “W” with a human figure inspired by the lotus yoga pose, symbolizing balance, wellness, and relaxation. The clean, minimal lines create a modern and professional look suitable for a medical spa. Teal blue conveys trust and calmness, while lime green represents freshness and renewal. The overall design reflects a harmony between medical expertise and holistic care, delivering a serene and rejuvenating brand identity.">
-            <div class="item-img" style="background-image: url('./assets/work-31.png')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Branding</span>
-                <h3>Westcreek Medical Spa – Logo Design</h3>
-                <span class="view-btn">View →</span>
-            </div>
-        </div>
-
-
-                 <!-- 32: Sothys -->
-        <div class="portfolio-item" data-category="Print" data-title="Sothys Paris Beauty Catalog Design" data-desc="This catalog design for Sothys Paris reflects elegance and luxury through soft visuals and refined composition. The layout combines beauty and wellness imagery with delicate patterns and gold accents, creating a sophisticated and calming aesthetic. Clean typography and balanced sections enhance readability while maintaining a premium brand feel.">
-            <div class="item-img" style="background-image: url('./assets/work-32.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Print</span>
-                <h3>Sothys Paris Beauty Catalog Design</h3>
-                <span class="view-btn">View →</span> 
-            </div>
-        </div>
-
-
-              <!-- 33: Saffron -->
-        <div class="portfolio-item" data-category="packaging" data-title="Premium saffron packaging design" data-desc="This premium saffron packaging design presents an elegant and sophisticated visual identity. The soft cream tones combined with delicate gold accents and purple floral motifs highlight the product’s value and natural essence. Supported by minimal yet refined typography, the design aims to position the brand within the luxury segment. It offers both aesthetic appeal and strong shelf presence.">
-            <div class="item-img" style="background-image: url('./assets/work-33.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Premium saffron packaging design</h3>
-                <span class="view-btn">View →</span> 
-            </div>
-        </div>
-
-               <!-- 34: Duronex -->
-        <div class="portfolio-item" data-category="packaging" data-title="Insulation Foam Spray Can Design for E-commerce" data-desc="High-impact packaging design for insulation spray foam. Focused on readability, branding consistency, and strong visual appeal to increase product visibility.">
-            <div class="item-img" style="background-image: url('./assets/work-34.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Insulation Foam Spray Can Design for E-commerce</h3>
-                <span class="view-btn">View →</span> 
-            </div>
-        </div>
-
-
-           <!-- 35: Duronex -->
-        <div class="portfolio-item" data-category="packaging" data-title="Coffee Doypack Packaging Design" data-desc="I design clean, modern coffee doypack packaging that stands out on the shelf, using strong typography, a premium look, and clear product communication—perfect for coffee brands seeking simple, effective design with ready-to-print, high-quality files.">
-            <div class="item-img" style="background-image: url('./assets/work-35.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>Coffee Doypack Packaging Design</h3>
-                <span class="view-btn">View →</span> 
-            </div>
-        </div>
-
-                   <!-- 36: Nutri Choise -->
-        <div class="portfolio-item" data-category="packaging" data-title="COQ10 Gummies" data-desc="E-commerce product visual and packaging presentation for Nature’s Choice.">
-            <div class="item-img" style="background-image: url('./assets/work-36.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>COQ10 Gummies Packaging Design</h3>
-                <span class="view-btn">View →</span> 
-            </div>
-        </div>
-          
-       <!-- 37: Innova Health -->
-        <div class="portfolio-item" data-category="packaging" data-title="Bio Vitamins" data-desc="A minimalist and luxurious portfolio-ready design concept centered around warm golden and amber tones to elevate the product's premium positioning and visual hierarchy.">
-            <div class="item-img" style="background-image: url('./assets/work-37.jpg')"></div>
-            <div class="item-overlay">
-                <span class="item-cat">Packaging</span>
-                <h3>"Bio Vitamins Label Design</h3>
-                <span class="view-btn">View →</span> 
-            </div>
-        </div>
-          
-
-
-    </main>
-
-    <!-- LIGHTBOX -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
-        <div class="lightbox-content">
-            <button class="lb-close" onclick="closeLightbox()">✕</button>
-            <button class="lb-prev" onclick="prevSlide()">‹</button>
-            <button class="lb-next" onclick="nextSlide()">›</button>
-
-            <div class="lb-slides" id="lbSlides">
-                <!-- slides injected by JS -->
-            </div>
-
-            <div class="lb-info">
-                <span class="lb-cat" id="lbCat"></span>
-                <h2 id="lbTitle"></h2>
-                <p id="lbDesc"></p>
-                <div class="lb-dots" id="lbDots"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact me section -->
-    <div id="contact" style="max-width: 700px; margin: 0 auto; padding: 6rem 6% 4rem; text-align: center;">
-        <h4 style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; font-weight: 500;">Connect with me</h4>
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 300; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem;">Get in touch</h2>
-        <p style="color: var(--text2); font-size: 0.95rem; max-width: 500px; margin: 0 auto 3rem;">I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.</p>
-        <form style="text-align: left;">
-            <input type="hidden" name="subject" value="Miraga Nift - New form Submission">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-                <input type="text" placeholder="Enter your name"
-                    style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--card-bg); color: var(--text); outline: none; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; transition: border-color 0.2s;"
-                    required name="name">
-                <input type="email" placeholder="Enter your email"
-                    style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--card-bg); color: var(--text); outline: none; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; transition: border-color 0.2s;"
-                    required name="email">
-            </div>
-            <textarea rows="6" placeholder="Enter your message"
-                style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--card-bg); color: var(--text); outline: none; margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; resize: vertical;"
-                required name="message"></textarea>
-            <button type="submit"
-                style="display: flex; align-items: center; gap: 8px; padding: 10px 32px; background: linear-gradient(135deg, #b820e6, #da7d20); color: white; border: none; border-radius: 999px; cursor: pointer; margin: 0 auto; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">
-                Submit now →
-            </button>
-        </form>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <div style="margin-top: 5rem;">
-        <div style="text-align: center;">
-            <a href="mailto:miraga019@gmail.com" style="color: var(--text2); text-decoration: none; font-size: 0.9rem;">miraga019@gmail.com</a>
+    <footer class="py-12 px-6 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                © 2026 Miraga Niftalizade. All rights reserved.
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-sky-500 hover:text-white flex items-center justify-center transition">
+                    <i class="fa-brands fa-linkedin-in text-sm"></i>
+                </a>
+                <a href="mailto:miraga019@gmail.com" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-sky-500 hover:text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-envelope text-sm"></i>
+                </a>
+            </div>
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); margin: 3rem 10% 0; padding: 1rem 0; flex-wrap: wrap; gap: 1rem;">
-            <p style="color: var(--text2); font-size: 0.85rem;">© 2026</p>
-            <ul style="display: flex; gap: 2rem; list-style: none;">
-                <li><a target="_blank" href="#!" style="color: var(--text2); text-decoration: none; font-size: 0.85rem;">LinkedIn</a></li>
-            </ul>
+    </footer>
+
+    <!-- Lightbox Preview Modal (Multi-slide Image + Video + Description) -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 sm:p-8 transition-opacity duration-300">
+        <div class="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl">
+            <button id="lightbox-close" aria-label="Close Preview" class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-slate-900/70 hover:bg-sky-500 text-white backdrop-blur-md flex items-center justify-center transition hover:scale-105">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+
+            <div class="relative bg-slate-100 dark:bg-slate-950 flex items-center justify-center min-h-[300px] sm:min-h-[380px] max-h-[62vh] overflow-hidden">
+                <div id="lb-media-stage" class="w-full h-[320px] sm:h-[440px] flex items-center justify-center p-4"></div>
+
+                <button id="lightbox-prev" aria-label="Previous Slide" class="hidden absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-900/60 hover:bg-sky-500 text-white backdrop-blur-md flex items-center justify-center transition hover:scale-110">
+                    <i class="fa-solid fa-chevron-left text-sm"></i>
+                </button>
+                <button id="lightbox-next" aria-label="Next Slide" class="hidden absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-900/60 hover:bg-sky-500 text-white backdrop-blur-md flex items-center justify-center transition hover:scale-110">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+
+            <div class="p-6 sm:px-8 sm:py-6 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+                <div class="flex items-start justify-between gap-4 mb-2">
+                    <div>
+                        <span id="lightbox-category" class="block text-xs font-bold uppercase tracking-widest text-sky-500 mb-1"></span>
+                        <h4 id="lightbox-title" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white"></h4>
+                    </div>
+                    <span id="lightbox-counter" class="text-xs font-medium text-slate-400 shrink-0 pt-1"></span>
+                </div>
+                <p id="lightbox-desc" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+                <div id="lightbox-dots" class="flex flex-wrap items-center gap-2 mt-4"></div>
+            </div>
         </div>
     </div>
 
-    <script src="portfolio.js"></script>
+    <!-- All JavaScript in One Place -->
+    <script>
+        // Theme Toggle Logic (with localStorage persistence)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
 
+        function syncThemeIcon() {
+            if (htmlElement.classList.contains('dark')) {
+                themeIcon.className = 'fa-solid fa-moon text-sm text-sky-400';
+            } else {
+                themeIcon.className = 'fa-solid fa-sun text-sm text-amber-500';
+            }
+        }
+
+        if (localStorage.theme === 'light') {
+            htmlElement.classList.remove('dark');
+        } else if (localStorage.theme === 'dark') {
+            htmlElement.classList.add('dark');
+        }
+        syncThemeIcon();
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            syncThemeIcon();
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // P1 Mockups & Media System (0..36)
+        const mockups = {
+            0:  ['./assets/work-1.png'],
+            1:  ['./assets/work-2.png'],
+            2:  ['./assets/work-3.png'],
+            3:  ['./assets/work-15.png', './assets/work-15-2.png'],
+            4:  ['./assets/work-5.png', './assets/work-5-2.png'],
+            5:  ['./assets/work-6.png', './assets/work-6-2.png'],
+            6:  ['./assets/work-7.png'],
+            7:  ['./assets/work-8.png'],
+            8:  ['./assets/work-9.png', './assets/work-9-2.png', './assets/work-9-3.png'],
+            9:  ['./assets/work-10.png', './assets/brb.mp4'],
+            10: ['./assets/work-17.png', './assets/work-17-2.png'],
+            11: ['./assets/work-12.png', './assets/work-12-2.png', './assets/work-12-3.png'],
+            12: ['./assets/work-13.jpg'],
+            13: ['./assets/work-14.png'],
+            14: ['./assets/work-4.png'],
+            15: ['./assets/work-16.png', './assets/work-16-2.png'],
+            16: ['./assets/work-11.png', './assets/work-11-2.png', './assets/work-11-3.png'],
+            17: ['./assets/work-18.png', './assets/work-18-2.png'],
+            18: ['./assets/work-19.png'],
+            19: ['./assets/work-20.png'],
+            20: ['./assets/work-21.png'],
+            21: ['./assets/work-22.png'],
+            22: ['./assets/work-23.png', './assets/work-23-2.png', './assets/work-23-3.png'],
+            23: ['./assets/work-24.png', './assets/work-24-2.png'],
+            24: ['./assets/work-25.png'],
+            25: ['./assets/work-26.png', './assets/work-26-2.png', './assets/work-26-3.png', './assets/work-26-4.png'],
+            26: ['./assets/work-27.jpg', './assets/work-27-2.jpg', './assets/work-27-3.jpg', './assets/work-27-4.jpg', './assets/work-27-5.jpg', './assets/work-27-6.jpg', './assets/work-27-7.jpg', './assets/work-27-8.jpg', './assets/work-27-9.jpg', './assets/work-27-10.jpg', './assets/work-27-11.jpg', './assets/work-27-12.jpg'],
+            27: ['./assets/work-28.jpg', './assets/work-28-2.jpg', './assets/work-28-3.jpg', './assets/work-28-4.jpg', './assets/work-28-5.jpg', './assets/work-28-6.jpg', './assets/work-28-7.jpg', './assets/work-28-8.jpg', './assets/work-28-9.jpg', './assets/work-28-10.jpg', './assets/work-28-11.jpg', './assets/work-28-12.jpg', './assets/work-28-13.jpg', './assets/work-28-14.jpg'],
+            28: ['./assets/work-30.png', './assets/work-30-2.png', './assets/work-30-3.png', './assets/work-30-4.png', './assets/work-30-5.png'],
+            29: ['./assets/work-29.jpg', './assets/work-29-2.jpg', './assets/work-29-3.jpg'],
+            30: ['./assets/work-31.png', './assets/work-31-1.png', './assets/work-31-2.png'],
+            31: ['./assets/work-32.jpg', './assets/work-32-2.jpg', './assets/work-32-3.jpg'],
+            32: ['./assets/work-33.jpg', './assets/saffron.mp4', './assets/work-33-2.jpg', './assets/work-33-3.jpg', './assets/work-33-4.jpg'],
+            33: ['./assets/work-34.jpg', './assets/work-34-2.jpg'],
+            34: ['./assets/work-35.jpg'],
+            35: ['./assets/work-36.jpg', './assets/work-36-2.jpg'],
+            36: ['./assets/work-37.jpg', './assets/work-37-2.jpg'],
+        };
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectItems = Array.from(document.querySelectorAll('.project-item'));
+
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lbMediaStage = document.getElementById('lb-media-stage');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+        const lightboxCategory = document.getElementById('lightbox-category');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const lightboxDots = document.getElementById('lightbox-dots');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        let currentSlides = [];
+        let currentSlideIndex = 0;
+
+        function isVideo(src) {
+            return /\.(mp4|webm|mov)$/i.test(src);
+        }
+
+        // Category Filter
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-sky-500', 'text-white', 'shadow-md', 'shadow-sky-500/25');
+                    btn.classList.add('bg-white', 'dark:bg-slate-800', 'hover:bg-slate-200', 'dark:hover:bg-slate-700', 'border', 'border-slate-200', 'dark:border-slate-700');
+                });
+
+                button.classList.add('active', 'bg-sky-500', 'text-white', 'shadow-md', 'shadow-sky-500/25');
+                button.classList.remove('bg-white', 'dark:bg-slate-800', 'hover:bg-slate-200', 'dark:hover:bg-slate-700', 'border', 'border-slate-200', 'dark:border-slate-700');
+
+                const filterValue = button.getAttribute('data-filter').toLowerCase();
+
+                projectItems.forEach(item => {
+                    const itemCat = item.getAttribute('data-category').toLowerCase();
+                    if (filterValue === 'all' || itemCat === filterValue) {
+                        item.classList.remove('hidden');
+                        item.classList.add('fade-in-item');
+                    } else {
+                        item.classList.add('hidden');
+                        item.classList.remove('fade-in-item');
+                    }
+                });
+            });
+        });
+
+        function renderSlideMedia() {
+            const src = currentSlides[currentSlideIndex];
+            lbMediaStage.innerHTML = '';
+
+            if (isVideo(src)) {
+                const video = document.createElement('video');
+                video.src = src;
+                video.controls = true;
+                video.autoplay = true;
+                video.loop = true;
+                video.muted = true;
+                video.playsInline = true;
+                video.className = 'max-h-full max-w-full w-auto h-auto object-contain rounded-xl';
+                lbMediaStage.appendChild(video);
+            } else {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = lightboxTitle.textContent;
+                img.className = 'max-h-full max-w-full w-auto h-auto object-contain select-none rounded-xl';
+                lbMediaStage.appendChild(img);
+            }
+
+            lightboxCounter.textContent = `${currentSlideIndex + 1} / ${currentSlides.length}`;
+
+            const dots = lightboxDots.querySelectorAll('button');
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlideIndex) {
+                    dot.className = 'w-6 h-2.5 rounded-full bg-sky-500 transition-all';
+                } else {
+                    dot.className = 'w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-sky-400 transition-all';
+                }
+            });
+        }
+
+        function goToSlide(index) {
+            const activeVideo = lbMediaStage.querySelector('video');
+            if (activeVideo) activeVideo.pause();
+
+            currentSlideIndex = (index + currentSlides.length) % currentSlides.length;
+            renderSlideMedia();
+        }
+
+        function openLightbox(item, projectIndex) {
+            const fallbackImg = item.getAttribute('data-img');
+            currentSlides = (mockups[projectIndex] && mockups[projectIndex].length) ? mockups[projectIndex] : [fallbackImg];
+            currentSlideIndex = 0;
+
+            lightboxCategory.textContent = item.getAttribute('data-category').toUpperCase();
+            lightboxTitle.textContent = item.getAttribute('data-title');
+            lightboxDesc.textContent = item.getAttribute('data-desc') || '';
+
+            lightboxDots.innerHTML = '';
+            if (currentSlides.length > 1) {
+                lightboxPrev.classList.remove('hidden');
+                lightboxNext.classList.remove('hidden');
+                currentSlides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.ariaLabel = `Slide ${i + 1}`;
+                    dot.addEventListener('click', () => goToSlide(i));
+                    lightboxDots.appendChild(dot);
+                });
+            } else {
+                lightboxPrev.classList.add('hidden');
+                lightboxNext.classList.add('hidden');
+            }
+
+            renderSlideMedia();
+            lightboxModal.classList.remove('hidden');
+            lightboxModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const activeVideo = lbMediaStage.querySelector('video');
+            if (activeVideo) activeVideo.pause();
+            lbMediaStage.innerHTML = '';
+            lightboxModal.classList.add('hidden');
+            lightboxModal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        projectItems.forEach((item, index) => {
+            item.addEventListener('click', () => openLightbox(item, index));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', () => goToSlide(currentSlideIndex - 1));
+        lightboxNext.addEventListener('click', () => goToSlide(currentSlideIndex + 1));
+
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (lightboxModal.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft' && currentSlides.length > 1) goToSlide(currentSlideIndex - 1);
+            if (e.key === 'ArrowRight' && currentSlides.length > 1) goToSlide(currentSlideIndex + 1);
+        });
+
+        // Animated Stats Counter
+        const statsGrid = document.getElementById('stats-counter-grid');
+        const statCounters = document.querySelectorAll('.stat-counter');
+        let countersStarted = false;
+
+        function animateCounters() {
+            if (countersStarted) return;
+            countersStarted = true;
+
+            const duration = 1800; // ms
+            statCounters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'), 10);
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease-out cubic for smooth deceleration
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = Math.floor(easeOut * target);
+                    counter.textContent = currentVal + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + suffix;
+                    }
+                }
+
+                requestAnimationFrame(updateCounter);
+            });
+        }
+
+        if (statsGrid) {
+            const rect = statsGrid.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                animateCounters();
+            } else {
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            counterObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                counterObserver.observe(statsGrid);
+            }
+        }
+    </script>
 </body>
 </html>
